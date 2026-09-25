@@ -5,34 +5,54 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>이용약관 — 온새미골</title>
 <style>
-  :root { --ink:#3A2E24; --cream:#F6EED9; --line:#DDD3BC; }
+  :root { --bg:#ffffff; --ink:#1d1d1f; --sub:#6e6e73; --link:#0066cc; --line:#d2d2d7; --th:#f5f5f7; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#000000; --ink:#f5f5f7; --sub:#a1a1a6; --link:#2997ff; --line:#424245; --th:#1d1d1f; }
+  }
   * { box-sizing:border-box; }
-  body { margin:0; padding:24px 16px 64px; background:var(--cream); color:var(--ink);
-         font:16px/1.7 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif; }
-  main { max-width:760px; margin:0 auto; }
-  h1 { font-size:26px; line-height:1.4; margin:0 0 8px; }
-  h2 { font-size:19px; margin:32px 0 10px; padding-top:16px; border-top:1px solid var(--line); }
-  .meta { font-size:14px; color:#6B5B4A; margin:0 0 24px; }
-  .box { background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin:0 0 24px; }
-  .box dl { margin:0; display:grid; grid-template-columns:auto 1fr; gap:4px 16px; font-size:15px; }
-  .box dt { color:#6B5B4A; } .box dd { margin:0; }
-  ol { padding-left:22px; } li { margin:6px 0; }
-  footer { margin-top:48px; padding-top:16px; border-top:1px solid var(--line); font-size:14px; color:#6B5B4A; }
-  a { color:#B4600F; }
+  html { -webkit-text-size-adjust:100%; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:16px/1.7 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Segoe UI",Roboto,sans-serif; }
+  main { max-width:720px; margin:0 auto; padding:32px 16px 72px; }
+  a { color:var(--link); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .lang { margin:0 0 32px; font-size:14px; color:var(--sub); }
+  .lang strong { color:var(--ink); font-weight:600; }
+  h1 { font-size:28px; line-height:1.3; font-weight:700; margin:0 0 8px; letter-spacing:-0.01em; }
+  h2 { font-size:19px; line-height:1.4; font-weight:600; margin:40px 0 12px; padding-top:24px; border-top:1px solid var(--line); }
+  .meta { margin:0 0 32px; font-size:14px; color:var(--sub); }
+  p { margin:0 0 14px; }
+  ul, ol { margin:0 0 14px; padding-left:22px; }
+  li { margin:6px 0; }
+  dl.info { margin:0 0 16px; display:grid; grid-template-columns:max-content 1fr; gap:4px 20px; font-size:15px; }
+  dl.info dt { color:var(--sub); }
+  dl.info dd { margin:0; }
+  .table-wrap { overflow-x:auto; margin:12px 0 16px; }
+  table { width:100%; border-collapse:collapse; font-size:14px; line-height:1.55; }
+  th, td { border:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top; }
+  th { background:var(--th); font-weight:600; }
+  code { font:13px/1 ui-monospace,SFMono-Regular,Menlo,monospace; }
+  .note { font-size:14px; color:var(--sub); }
+  footer { margin-top:56px; padding-top:16px; border-top:1px solid var(--line); font-size:13px; color:var(--sub); }
+  footer p { margin:0 0 4px; }
+  .links { list-style:none; padding:0; margin:0 0 24px; }
+  .links li { margin:0; padding:12px 0; border-bottom:1px solid var(--line); font-size:17px; }
+  .links li:first-child { border-top:1px solid var(--line); }
+  .section-label { font-size:13px; color:var(--sub); margin:32px 0 8px; text-transform:uppercase; letter-spacing:0.04em; }
 </style>
 </head>
 <body>
 <main>
 
-<h1>이용약관</h1>
-<p class="meta">온새미골 (iOS) · 시행일 2026년 9월 14일</p>
+<p class="lang"><a href="en.html" lang="en">English</a> | <strong>한국어</strong></p>
 
-<div class="box">
-  <dl>
+<h1>이용약관</h1>
+<p class="meta">온새미골 (iOS) · 시행일 2026년 9월 14일 · 게시 주체 정성윤 (개인 개발자)</p>
+
+<dl class="info">
     <dt>게시 주체</dt><dd>정성윤 (개인 개발자)</dd>
     <dt>문의</dt><dd><a href="mailto:onsaemigol@gmail.com">onsaemigol@gmail.com</a></dd>
-  </dl>
-</div>
+</dl>
 
 <h2>제1조 (목적과 적용)</h2>
 <ol>

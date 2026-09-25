@@ -5,43 +5,55 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>개인정보처리방침 — 온새미골</title>
 <style>
-  :root { --ink:#3A2E24; --cream:#F6EED9; --line:#DDD3BC; }
+  :root { --bg:#ffffff; --ink:#1d1d1f; --sub:#6e6e73; --link:#0066cc; --line:#d2d2d7; --th:#f5f5f7; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#000000; --ink:#f5f5f7; --sub:#a1a1a6; --link:#2997ff; --line:#424245; --th:#1d1d1f; }
+  }
   * { box-sizing:border-box; }
-  body { margin:0; padding:24px 16px 64px; background:var(--cream); color:var(--ink);
-         font:16px/1.7 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif; }
-  main { max-width:760px; margin:0 auto; }
-  h1 { font-size:26px; line-height:1.4; margin:0 0 8px; }
-  h2 { font-size:19px; margin:36px 0 10px; padding-top:16px; border-top:1px solid var(--line); }
-  .meta { font-size:14px; color:#6B5B4A; margin:0 0 24px; }
-  .box { background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin:0 0 24px; }
-  .box dl { margin:0; display:grid; grid-template-columns:auto 1fr; gap:4px 16px; font-size:15px; }
-  .box dt { color:#6B5B4A; }
-  .box dd { margin:0; }
-  table { width:100%; border-collapse:collapse; font-size:14px; margin:12px 0; display:block; overflow-x:auto; }
-  th,td { border:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top; }
-  th { background:#EFE5CC; font-weight:600; white-space:nowrap; }
-  ul,ol { padding-left:22px; }
-  li { margin:4px 0; }
-  footer { margin-top:48px; padding-top:16px; border-top:1px solid var(--line); font-size:14px; color:#6B5B4A; }
-  a { color:#B4600F; }
-  .lang { font-size:14px; margin-bottom:16px; }
+  html { -webkit-text-size-adjust:100%; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:16px/1.7 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Segoe UI",Roboto,sans-serif; }
+  main { max-width:720px; margin:0 auto; padding:32px 16px 72px; }
+  a { color:var(--link); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .lang { margin:0 0 32px; font-size:14px; color:var(--sub); }
+  .lang strong { color:var(--ink); font-weight:600; }
+  h1 { font-size:28px; line-height:1.3; font-weight:700; margin:0 0 8px; letter-spacing:-0.01em; }
+  h2 { font-size:19px; line-height:1.4; font-weight:600; margin:40px 0 12px; padding-top:24px; border-top:1px solid var(--line); }
+  .meta { margin:0 0 32px; font-size:14px; color:var(--sub); }
+  p { margin:0 0 14px; }
+  ul, ol { margin:0 0 14px; padding-left:22px; }
+  li { margin:6px 0; }
+  dl.info { margin:0 0 16px; display:grid; grid-template-columns:max-content 1fr; gap:4px 20px; font-size:15px; }
+  dl.info dt { color:var(--sub); }
+  dl.info dd { margin:0; }
+  .table-wrap { overflow-x:auto; margin:12px 0 16px; }
+  table { width:100%; border-collapse:collapse; font-size:14px; line-height:1.55; }
+  th, td { border:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top; }
+  th { background:var(--th); font-weight:600; }
+  code { font:13px/1 ui-monospace,SFMono-Regular,Menlo,monospace; }
+  .note { font-size:14px; color:var(--sub); }
+  footer { margin-top:56px; padding-top:16px; border-top:1px solid var(--line); font-size:13px; color:var(--sub); }
+  footer p { margin:0 0 4px; }
+  .links { list-style:none; padding:0; margin:0 0 24px; }
+  .links li { margin:0; padding:12px 0; border-bottom:1px solid var(--line); font-size:17px; }
+  .links li:first-child { border-top:1px solid var(--line); }
+  .section-label { font-size:13px; color:var(--sub); margin:32px 0 8px; text-transform:uppercase; letter-spacing:0.04em; }
 </style>
 </head>
 <body>
 <main>
 
-<p class="lang"><strong>한국어</strong> · <a href="./en.html">English</a></p>
+<p class="lang"><a href="en.html" lang="en">English</a> | <strong>한국어</strong></p>
 
 <h1>개인정보처리방침</h1>
-<p class="meta">온새미골 (iOS) · 시행일 2026년 9월 14일</p>
+<p class="meta">온새미골 (iOS) · 시행일 2026년 9월 14일 · 게시 주체 정성윤 (개인 개발자)</p>
 
-<div class="box">
-  <dl>
+<dl class="info">
     <dt>게시 주체</dt><dd>정성윤 (개인 개발자)</dd>
     <dt>앱 이름</dt><dd>온새미골</dd>
     <dt>문의</dt><dd><a href="mailto:onsaemigol@gmail.com">onsaemigol@gmail.com</a></dd>
-  </dl>
-</div>
+</dl>
 
 <p>정성윤 (이하 "개발자") 는 이용자의 개인정보를 중요하게 생각하며, 「개인정보 보호법」 을 준수합니다. 이 방침은 온새미골 (이하 "앱") 에서 처리하는 개인정보의 항목·목적·기간과 이용자의 권리를 안내합니다.</p>
 
@@ -57,7 +69,7 @@
 <p>앱은 광고를 게재하지 않고, 이용자 추적을 하지 않으며, 결제 기능이 없습니다.</p>
 
 <h2>2. 처리 항목과 수집 방법</h2>
-<table>
+<div class="table-wrap"><table>
 <thead><tr><th>항목</th><th>수집 시점·방법</th><th>목적</th><th>필수/선택</th></tr></thead>
 <tbody>
 <tr><td>Firebase uid (Apple 사용자 식별자 기반)</td><td>Apple 로그인 시 자동 생성</td><td>계정 식별·세이브 귀속</td><td>계정 이용 시 필수</td></tr>
@@ -70,12 +82,12 @@
 <tr><td>크래시 로그 (스택·기기 상태)</td><td>선택 동의 후 크래시 발생 시 자동</td><td>버그 수정</td><td>선택</td></tr>
 <tr><td>IP 주소</td><td>서버 통신 시</td><td>통신 처리</td><td>필수</td></tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>수집하지 않는 항목:</strong> 이메일 주소, 전화번호, 위치정보, 연락처, 사진·카메라, 광고 식별자(IDFA), 결제 정보. 앱은 <code>AdSupport.framework</code> 를 링크하지 않으며 추적을 하지 않으므로 앱 추적 투명성(ATT) 요청 창을 띄우지 않습니다.</p>
 <p><strong>계정 없이 이용할 때:</strong> Apple 로그인을 하지 않고 플레이하면 uid·닉네임·게임 세이브는 이용자 기기에만 저장되고 개발자에게 전송되지 않습니다.</p>
 
 <h2>3. 처리·보유 기간</h2>
-<table>
+<div class="table-wrap"><table>
 <thead><tr><th>항목</th><th>보유 기간</th></tr></thead>
 <tbody>
 <tr><td>uid · 닉네임 · 게임 세이브</td><td>계정 존속 기간. 계정 삭제 시 즉시 파기</td></tr>
@@ -85,14 +97,14 @@
 <tr><td>Firebase Installations ID</td><td>Google 서비스 처리 기간. 앱 삭제 시 재발급 중단</td></tr>
 <tr><td>IP 주소</td><td>보관하지 않음 (통신 처리 과정에서 일시적으로만 처리)</td></tr>
 </tbody>
-</table>
+</table></div>
 
 <h2>4. 제3자 제공</h2>
 <p>개발자는 이용자의 개인정보를 제3자에게 제공하지 않습니다. 아래 5·6항의 처리 위탁은 제3자 제공이 아닙니다.</p>
 
 <h2>5. 처리 위탁</h2>
 <p>개발자는 서비스 운영을 위해 아래와 같이 개인정보 처리를 위탁하고 있습니다. 위탁계약 시 개인정보의 안전한 관리에 관한 사항을 계약서에 반영하고, 수탁자가 이를 준수하는지 감독합니다.</p>
-<table>
+<div class="table-wrap"><table>
 <thead><tr><th>수탁자</th><th>위탁 업무</th><th>위탁 항목</th></tr></thead>
 <tbody>
 <tr><td rowspan="5">Google LLC</td><td>Firebase Authentication (로그인 토큰 검증·계정 식별)</td><td>uid, IP, 접속 시각</td></tr>
@@ -101,11 +113,11 @@
 <tr><td>Firebase Crashlytics (크래시 원인 분석) — 선택 동의 시</td><td>크래시 스택, 기기 상태, 앱 버전, IP</td></tr>
 <tr><td>Firebase Remote Config · App Check (튜닝값 배포, 비정상 클라이언트 차단)</td><td>Firebase Installations ID, App Attest 증명 토큰, IP</td></tr>
 </tbody>
-</table>
+</table></div>
 
 <h2>6. 국외 이전</h2>
 <p>위 5항의 위탁에 따라 개인정보가 국외로 이전됩니다. 이전 근거는 「개인정보 보호법」 상 처리·보관 위탁에 따른 처리방침 공개 방식이며, 별도의 동의를 받지 않습니다.</p>
-<table>
+<div class="table-wrap"><table>
 <thead><tr><th>이전받는 자</th><th>이전 국가</th><th>이전 항목</th><th>이전 일시·방법</th><th>목적</th><th>보유·이용 기간</th></tr></thead>
 <tbody>
 <tr><td rowspan="5">Google LLC<br>(미국)<br>개인정보 보호책임자 문의: <a href="https://support.google.com/policies/troubleshooter/7575787">Google 개인정보 문의 창구</a></td>
@@ -115,7 +127,7 @@
 <tr><td>미국 및 Google 데이터센터 소재국</td><td>크래시 스택, 기기 상태, 앱 버전, IP</td><td>크래시 원인 분석</td><td>90일</td></tr>
 <tr><td>미국 및 Google 데이터센터 소재국</td><td>Installations ID, App Attest 증명 토큰, IP</td><td>튜닝값 배포, 비정상 클라이언트 차단</td><td>Google 서비스 처리 기간</td></tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>거부 방법과 그 효과:</strong> 이용자는 국외 이전을 거부할 수 있습니다. 거부하려면 앱 최초 실행 시 안내 화면에서 필수 동의를 하지 않거나, 이미 계정을 만들었다면 앱 내에서 계정을 삭제하면 됩니다. 거부하는 경우 <strong>클라우드 세이브(계정 기능) 를 제공할 수 없으며</strong>, 계정 없이 기기에만 저장하는 방식으로는 계속 플레이할 수 있습니다.</p>
 
 <h2>7. Apple Inc. 와의 관계</h2>
@@ -154,7 +166,7 @@
 
 <h2>11. 개인정보 자동 수집 장치의 설치·운영과 거부</h2>
 <p>앱은 웹 브라우저를 사용하지 않으므로 <strong>쿠키를 사용하지 않습니다.</strong> 아래 SDK 가 앱 실행 중 자동으로 정보를 수집합니다.</p>
-<table>
+<div class="table-wrap"><table>
 <thead><tr><th>SDK</th><th>수집 정보</th><th>거부 방법</th></tr></thead>
 <tbody>
 <tr><td>Firebase Authentication</td><td>uid, IP</td><td>Apple 로그인을 하지 않으면 동작하지 않습니다</td></tr>
@@ -163,24 +175,22 @@
 <tr><td>Firebase Crashlytics</td><td>크래시 스택, 기기 상태</td><td>선택 동의를 하지 않거나, 설정에서 언제든 끌 수 있습니다</td></tr>
 <tr><td>Firebase Remote Config · App Check</td><td>Installations ID, 증명 토큰, IP</td><td>앱 동작에 필요해 개별 거부는 제공하지 않으며, 앱을 삭제하면 중단됩니다</td></tr>
 </tbody>
-</table>
+</table></div>
 
 <h2>12. 만 14세 미만 아동의 개인정보</h2>
 <p>개발자는 <strong>만 14세 미만 아동의 개인정보를 수집하지 않습니다.</strong> 앱 최초 실행 시 연령을 확인하며, 만 14세 미만으로 확인되면 계정(Apple 로그인) 기능을 제공하지 않고, 사용 통계·크래시 수집도 하지 않으며, 튜닝값 조회도 하지 않습니다. 이 경우 게임 데이터는 이용자 기기에만 저장되고 개발자에게 전송되지 않습니다.</p>
 
 <h2>13. 개인정보 보호책임자와 열람청구 접수·처리 창구</h2>
-<div class="box">
-  <dl>
+<dl class="info">
     <dt>개인정보 보호책임자</dt><dd>정성윤</dd>
     <dt>직책</dt><dd>개발자 (개인)</dd>
     <dt>연락처</dt><dd><a href="mailto:onsaemigol@gmail.com">onsaemigol@gmail.com</a></dd>
-  </dl>
-</div>
+</dl>
 <p>개인정보 열람청구는 위와 같은 이메일로 접수·처리합니다. 개인정보 보호 관련 문의·불만·피해 구제에 관한 사항도 같은 창구로 문의해 주시면 지체 없이 답변드리겠습니다. 개발자는 GitHub Issues·SNS 다이렉트 메시지를 문의 창구로 운영하지 않습니다.</p>
 
 <h2>14. 권익 침해 구제 방법</h2>
 <p>개인정보 침해로 인한 구제를 받기 위하여 아래 기관에 분쟁 해결이나 상담을 신청할 수 있습니다.</p>
-<table>
+<div class="table-wrap"><table>
 <thead><tr><th>기관</th><th>담당 업무</th><th>연락처</th></tr></thead>
 <tbody>
 <tr><td>개인정보침해 신고센터</td><td>개인정보 침해 사실 신고, 상담 신청</td><td>(국번없이) 118 · privacy.kisa.or.kr</td></tr>
@@ -188,20 +198,20 @@
 <tr><td>대검찰청 사이버수사과</td><td>개인정보 침해 수사</td><td>(국번없이) 1301 · www.spo.go.kr</td></tr>
 <tr><td>경찰청 사이버수사국</td><td>개인정보 침해 수사</td><td>(국번없이) 182 · ecrm.police.go.kr</td></tr>
 </tbody>
-</table>
+</table></div>
 <p>또한 개인정보의 열람·정정·삭제·처리정지 요구에 대한 개발자의 조치에 불복이 있는 경우 「개인정보 보호법」 에 따라 행정심판을 청구할 수 있습니다.</p>
 
 <h2>15. 시행일과 변경 이력</h2>
 <p>이 개인정보처리방침은 <strong>2026년 9월 14일</strong> 부터 적용됩니다. 내용을 추가·삭제·수정할 때에는 시행 <strong>7일 전</strong> 부터 앱 내 공지와 이 페이지를 통해 알립니다. 다만 이용자 권리에 중대한 영향을 미치는 변경은 <strong>30일 전</strong> 에 알립니다.</p>
-<table>
+<div class="table-wrap"><table>
 <thead><tr><th>버전</th><th>시행일</th><th>변경 내용</th></tr></thead>
 <tbody>
 <tr><td>v1</td><td>2026년 9월 14일</td><td>최초 제정</td></tr>
 </tbody>
-</table>
+</table></div>
 
 <footer>
-  <p>온새미골 · 게시 주체 정성윤 · 문의 <a href="mailto:onsaemigol@gmail.com">onsaemigol@gmail.com</a></p>
+  <p>온새미골 · 게시 주체 정성윤 · <a href="../terms/">이용약관</a> · 문의 <a href="mailto:onsaemigol@gmail.com">onsaemigol@gmail.com</a></p>
   <p>최종 수정 2026년 9월 14일</p>
 </footer>
 
