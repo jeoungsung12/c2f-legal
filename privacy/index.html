@@ -47,7 +47,7 @@
 <p class="lang"><a href="en.html" lang="en">English</a> | <strong>한국어</strong></p>
 
 <h1>개인정보처리방침</h1>
-<p class="meta">온새미골 (iOS) · 시행일 2026년 9월 14일 · 게시 주체 정성윤 (개인 개발자)</p>
+<p class="meta">온새미골 (iOS · Android) · 시행일 2026년 10월 3일 · 게시 주체 정성윤 (개인 개발자)</p>
 
 <dl class="info">
     <dt>게시 주체</dt><dd>정성윤 (개인 개발자)</dd>
@@ -60,7 +60,8 @@
 <h2>1. 처리 목적</h2>
 <p>개발자는 아래 목적으로만 개인정보를 처리하며, 목적이 변경될 때에는 사전에 동의를 받습니다.</p>
 <ul>
-  <li><strong>계정 식별과 세이브 귀속</strong> — Apple 로그인으로 만들어진 계정을 식별하고 게임 진행 데이터를 해당 계정에 연결합니다.</li>
+  <li><strong>계정 식별과 세이브 귀속</strong> — Apple 로그인(iOS) 또는 Google 로그인(Android) 으로 만들어진 계정을 식별하고 게임 진행 데이터를 해당 계정에 연결합니다.</li>
+  <li><strong>계정 관리</strong> — Google 로그인 시 Firebase Authentication 이 계정 기록에 보관하는 Google 계정 이메일 주소는, 이메일로 계정 삭제 등을 요청받았을 때 본인 확인에만 사용합니다. 앱은 이 값을 읽지 않으며, 연락·마케팅에 쓰지 않습니다.</li>
   <li><strong>클라우드 세이브 보관·복구</strong> — 기기 변경·재설치 시 게임 진행 데이터를 복구합니다.</li>
   <li><strong>호환성 확인과 오류 수정</strong> — 기기·OS·앱 버전을 확인하고 크래시 원인을 분석합니다.</li>
   <li><strong>사용 통계 (선택)</strong> — 이용자가 선택 동의한 경우에만 가명 처리된 사용 통계를 확인합니다.</li>
@@ -72,32 +73,42 @@
 <div class="table-wrap"><table>
 <thead><tr><th>항목</th><th>수집 시점·방법</th><th>목적</th><th>필수/선택</th></tr></thead>
 <tbody>
-<tr><td>Firebase uid (Apple 사용자 식별자 기반)</td><td>Apple 로그인 시 자동 생성</td><td>계정 식별·세이브 귀속</td><td>계정 이용 시 필수</td></tr>
+<tr><td>Firebase uid (Apple 사용자 식별자 또는 Google 계정 식별자 기반)</td><td>Apple 로그인(iOS) 또는 Google 로그인(Android) 시 자동 생성</td><td>계정 식별·세이브 귀속</td><td>계정 이용 시 필수</td></tr>
 <tr><td>Apple 이 제공하는 이름</td><td>최초 Apple 로그인 1회, Apple 이 반환</td><td>사용하지 않음 — 수신 즉시 폐기하며 저장·표시·전송하지 않습니다</td><td>-</td></tr>
+<tr><td>Google 계정 이메일 주소·이름·프로필 사진 주소(URL)</td><td>Google 로그인(Android) 시 Google 이 로그인 토큰에 담아 보내며, Firebase Authentication 이 계정 기록에 보관. 앱은 로그인 토큰을 Firebase Authentication 에 넘길 뿐, 이 값을 꺼내 읽거나 화면에 표시하지 않으며 게임 세이브·클라우드 세이브·사용 통계에 넣지 않습니다</td><td>계정 관리 (이메일 주소는 이메일로 계정 삭제 등을 요청받았을 때 본인 확인에만 사용)</td><td>계정 이용 시 필수 (Google 로그인 시)</td></tr>
 <tr><td>닉네임</td><td>이용자가 앱에서 직접 입력</td><td>게임 내 호칭</td><td>필수</td></tr>
 <tr><td>게임 세이브 (진행·인벤토리)</td><td>클라우드 동기화 시</td><td>클라우드 복구</td><td>계정 이용 시 필수</td></tr>
 <tr><td>기기 모델·OS 버전·앱 버전</td><td>앱 실행 시 자동</td><td>호환성 확인·크래시 분석</td><td>필수</td></tr>
 <tr><td>Analytics 앱 인스턴스 ID (가명)</td><td>선택 동의 후 최초 실행 시 자동</td><td>사용 통계</td><td>선택</td></tr>
+<tr><td>대략적인 지역 (국가·도시 수준)</td><td>선택 동의 후 Google Analytics 가 IP 주소로 추정</td><td>사용 통계</td><td>선택</td></tr>
 <tr><td>Firebase Installations ID</td><td>앱 시작 시 자동 (튜닝값·기기 증명 호출)</td><td>튜닝값 배포 대상 식별, 기기 증명</td><td>필수</td></tr>
 <tr><td>크래시 로그 (스택·기기 상태)</td><td>선택 동의 후 크래시 발생 시 자동</td><td>버그 수정</td><td>선택</td></tr>
 <tr><td>IP 주소</td><td>서버 통신 시</td><td>통신 처리</td><td>필수</td></tr>
 </tbody>
 </table></div>
-<p><strong>수집하지 않는 항목:</strong> 이메일 주소, 전화번호, 위치정보, 연락처, 사진·카메라, 광고 식별자(IDFA), 결제 정보. 앱은 <code>AdSupport.framework</code> 를 링크하지 않으며 추적을 하지 않으므로 앱 추적 투명성(ATT) 요청 창을 띄우지 않습니다.</p>
-<p><strong>계정 없이 이용할 때:</strong> Apple 로그인을 하지 않고 플레이하면 uid·닉네임·게임 세이브는 이용자 기기에만 저장되고 개발자에게 전송되지 않습니다.</p>
+<p><strong>수집하지 않는 항목:</strong> 전화번호, 정확한 위치정보, 연락처, 사진·카메라, 광고 식별자(iOS 의 IDFA, Android 의 광고 ID), 결제 정보. iOS 앱은 <code>AdSupport.framework</code> 를 링크하지 않으며 추적을 하지 않으므로 앱 추적 투명성(ATT) 요청 창을 띄우지 않습니다. Android 앱은 Analytics 의 광고 ID 수집 설정을 꺼 두어 광고 ID 를 수집하지 않습니다.</p>
+<ul>
+  <li><strong>이메일 주소</strong> — Apple 로그인은 이름 범위만 요청하므로 Apple 로그인 사용자의 이메일 주소는 받지 않습니다. Google 로그인 사용자의 이메일 주소는 위 표와 같이 Firebase Authentication 이 보관합니다.</li>
+  <li><strong>위치</strong> — 정확한 위치(GPS 등)는 수집하지 않습니다. 진단·사용 통계 전송에 선택 동의한 경우에만 Google Analytics 가 IP 주소로 국가·도시 수준의 대략적인 지역을 추정합니다.</li>
+  <li><strong>사진</strong> — Google 프로필 사진 파일은 받지 않습니다. 위 표의 사진 주소(URL)만 Firebase Authentication 의 계정 기록에 남습니다.</li>
+</ul>
+<p><strong>계정 없이 이용할 때:</strong> Apple·Google 로그인을 하지 않고 게스트로 플레이하면 계정(uid)을 만들지 않으며, 닉네임·게임 세이브는 이용자 기기에만 저장되고 개발자에게 전송되지 않습니다.</p>
 
 <h2>3. 처리·보유 기간</h2>
 <div class="table-wrap"><table>
 <thead><tr><th>항목</th><th>보유 기간</th></tr></thead>
 <tbody>
 <tr><td>uid · 닉네임 · 게임 세이브</td><td>계정 존속 기간. 계정 삭제 시 즉시 파기</td></tr>
+<tr><td>Google 계정 이메일 주소·이름·프로필 사진 주소</td><td>계정 존속 기간. 계정 삭제 시 즉시 파기</td></tr>
 <tr><td>Apple 이 제공하는 이름</td><td>보유하지 않음 (수신 즉시 폐기)</td></tr>
-<tr><td>Analytics 데이터 (기기 정보 포함)</td><td>사용자 단위 2개월 후 자동 만료</td></tr>
+<tr><td>Analytics 데이터 (기기 정보·대략적인 지역 포함)</td><td>사용자 단위 2개월 후 자동 만료</td></tr>
 <tr><td>크래시 로그</td><td>90일 후 자동 만료</td></tr>
 <tr><td>Firebase Installations ID</td><td>Google 서비스 처리 기간. 앱 삭제 시 재발급 중단</td></tr>
-<tr><td>IP 주소</td><td>보관하지 않음 (통신 처리 과정에서 일시적으로만 처리)</td></tr>
+<tr><td>IP 주소</td><td>개발자는 별도로 저장하지 않음. Firebase Authentication은 보안·악용 방지를 위해 기록된 IP 주소를 수 주간 보관</td></tr>
 </tbody>
 </table></div>
+
+<p>계정 삭제 시 앱은 클라우드 세이브와 Firebase Authentication 계정의 삭제를 즉시 요청합니다. Firebase Authentication의 인증 정보는 Google의 운영·백업 시스템에서 삭제 완료까지 최대 180일이 걸릴 수 있습니다. Crashlytics는 90일 보관 뒤 운영·백업 시스템에서 삭제 절차를 시작합니다. 자세한 기준은 <a href="https://firebase.google.com/support/privacy">Firebase 개인정보 및 보안 안내</a>를 따릅니다.</p>
 
 <h2>4. 제3자 제공</h2>
 <p>개발자는 이용자의 개인정보를 제3자에게 제공하지 않습니다. 아래 5·6항의 처리 위탁은 제3자 제공이 아닙니다.</p>
@@ -107,11 +118,11 @@
 <div class="table-wrap"><table>
 <thead><tr><th>수탁자</th><th>위탁 업무</th><th>위탁 항목</th></tr></thead>
 <tbody>
-<tr><td rowspan="5">Google LLC</td><td>Firebase Authentication (로그인 토큰 검증·계정 식별)</td><td>uid, IP, 접속 시각</td></tr>
+<tr><td rowspan="5">Google LLC</td><td>Firebase Authentication (로그인 토큰 검증·계정 식별·계정 기록 보관)</td><td>uid, Apple 사용자 식별자 또는 Google 계정 식별자, Google 계정 이메일 주소·이름·프로필 사진 주소(Google 로그인 시), IP, 접속 시각</td></tr>
 <tr><td>Cloud Firestore (클라우드 세이브 보관·복구)</td><td>uid, 닉네임, 게임 세이브, 동기화 메타, IP</td></tr>
-<tr><td>Google Analytics for Firebase (사용 통계) — 선택 동의 시</td><td>앱 인스턴스 ID(가명), 기기 모델·OS·앱 버전, 이벤트 로그, IP</td></tr>
+<tr><td>Google Analytics for Firebase (사용 통계) — 선택 동의 시</td><td>앱 인스턴스 ID(가명), 기기 모델·OS·앱 버전, 이벤트 로그, IP 로 추정한 대략적인 지역, IP</td></tr>
 <tr><td>Firebase Crashlytics (크래시 원인 분석) — 선택 동의 시</td><td>크래시 스택, 기기 상태, 앱 버전, IP</td></tr>
-<tr><td>Firebase Remote Config · App Check (튜닝값 배포, 비정상 클라이언트 차단)</td><td>Firebase Installations ID, App Attest 증명 토큰, IP</td></tr>
+<tr><td>Firebase Remote Config · App Check (튜닝값 배포, 비정상 클라이언트 차단)</td><td>Firebase Installations ID, App Attest 증명 토큰(iOS), Play Integrity 증명 토큰(Android), IP</td></tr>
 </tbody>
 </table></div>
 
@@ -121,25 +132,27 @@
 <thead><tr><th>이전받는 자</th><th>이전 국가</th><th>이전 항목</th><th>이전 일시·방법</th><th>목적</th><th>보유·이용 기간</th></tr></thead>
 <tbody>
 <tr><td rowspan="5">Google LLC<br>(미국)<br>개인정보 보호책임자 문의: <a href="https://support.google.com/policies/troubleshooter/7575787">Google 개인정보 문의 창구</a></td>
-    <td>미국 (Authentication 인프라)</td><td>uid, IP, 접속 시각</td><td rowspan="5">서비스 이용 시점에 HTTPS(TLS) 로 전송</td><td>로그인 토큰 검증·계정 식별</td><td>계정 존속 기간</td></tr>
+    <td>미국 (Authentication 인프라)</td><td>uid, Apple 사용자 식별자 또는 Google 계정 식별자, Google 계정 이메일 주소·이름·프로필 사진 주소(Google 로그인 시), IP, 접속 시각</td><td rowspan="5">서비스 이용 시점에 HTTPS(TLS) 로 전송</td><td>로그인 토큰 검증·계정 식별·계정 기록 보관</td><td>계정 존속 기간</td></tr>
 <tr><td>대한민국 서울 리전에 저장. 운영·지원 과정에서 미국 및 Google 데이터센터 소재국에서 접근 가능</td><td>uid, 닉네임, 게임 세이브, 동기화 메타, IP</td><td>클라우드 세이브 보관·복구</td><td>계정 존속 기간</td></tr>
-<tr><td>미국 및 Google 데이터센터 소재국</td><td>앱 인스턴스 ID(가명), 기기 정보, 이벤트 로그, IP</td><td>사용 통계</td><td>2개월</td></tr>
+<tr><td>미국 및 Google 데이터센터 소재국</td><td>앱 인스턴스 ID(가명), 기기 정보, 이벤트 로그, 대략적인 지역, IP</td><td>사용 통계</td><td>2개월</td></tr>
 <tr><td>미국 및 Google 데이터센터 소재국</td><td>크래시 스택, 기기 상태, 앱 버전, IP</td><td>크래시 원인 분석</td><td>90일</td></tr>
-<tr><td>미국 및 Google 데이터센터 소재국</td><td>Installations ID, App Attest 증명 토큰, IP</td><td>튜닝값 배포, 비정상 클라이언트 차단</td><td>Google 서비스 처리 기간</td></tr>
+<tr><td>미국 및 Google 데이터센터 소재국</td><td>Installations ID, App Attest 증명 토큰(iOS)·Play Integrity 증명 토큰(Android), IP</td><td>튜닝값 배포, 비정상 클라이언트 차단</td><td>Google 서비스 처리 기간</td></tr>
 </tbody>
 </table></div>
 <p><strong>거부 방법과 그 효과:</strong> 이용자는 국외 이전을 거부할 수 있습니다. 거부하려면 앱 최초 실행 시 안내 화면에서 필수 동의를 하지 않거나, 이미 계정을 만들었다면 앱 내에서 계정을 삭제하면 됩니다. 거부하는 경우 <strong>클라우드 세이브(계정 기능) 를 제공할 수 없으며</strong>, 계정 없이 기기에만 저장하는 방식으로는 계속 플레이할 수 있습니다.</p>
 
-<h2>7. Apple Inc. 와의 관계</h2>
+<h2>7. Apple Inc. · Google LLC 와의 관계</h2>
 <ul>
-  <li><strong>Sign in with Apple</strong> 은 Apple 이 이용자 식별자를 개발자에게 제공하는 인증 수단입니다. 개발자는 이 과정에서 Apple 에 이용자의 개인정보를 제공하지 않으며, Apple 에 개인정보 처리를 위탁하지 않습니다. Apple 의 처리에 대해서는 Apple 의 개인정보 처리방침이 적용됩니다.</li>
+  <li><strong>Sign in with Apple</strong> (iOS) 은 Apple 이 이용자 식별자를 개발자에게 제공하는 인증 수단입니다. 개발자는 이 과정에서 Apple 에 이용자의 개인정보를 제공하지 않으며, Apple 에 개인정보 처리를 위탁하지 않습니다. Apple 의 처리에 대해서는 Apple 의 개인정보 처리방침이 적용됩니다.</li>
+  <li><strong>Google 로그인</strong> (Android) 은 Google 이 이용자 식별자를 개발자에게 제공하는 인증 수단입니다. 개발자는 이 과정에서 Google 에 이용자의 개인정보를 제공하지 않으며, 로그인 수단을 제공받는 것 자체는 개인정보 처리 위탁이 아닙니다. Google 계정에 대한 Google 의 처리에는 Google 의 개인정보처리방침이 적용됩니다. 로그인 뒤 Firebase Authentication 이 계정 기록을 보관하는 것은 위 5항의 처리 위탁에 해당합니다.</li>
   <li><strong>TestFlight 를 통한 베타 배포</strong> 시 테스터의 이메일·기기 정보는 Apple 이 자체 정책에 따라 처리합니다. 개발자는 테스터 이메일을 별도로 수집·보관하지 않습니다.</li>
+  <li><strong>Google Play 를 통한 테스트 배포</strong> 에서 이메일 목록으로 테스터를 지정하는 경우, 개발자는 테스트에 참여할 분의 Google 계정 이메일 주소를 Play Console 테스터 목록에 등록합니다. 이 이메일 주소는 테스트 참여 관리에만 쓰고, Play Console 테스터 목록에만 두며, 테스트가 끝나면 목록에서 지웁니다. 테스터의 설치·기기 정보는 Google 이 자체 정책에 따라 처리합니다.</li>
 </ul>
 
 <h2>8. 파기 절차와 방법</h2>
 <ul>
   <li>보유 기간이 끝나거나 처리 목적이 달성되면 지체 없이 파기합니다.</li>
-  <li>계정 삭제를 요청하면 클라우드에 저장된 uid·닉네임·게임 세이브를 즉시 삭제하고, Apple 로그인 연동을 해제합니다. 전자적 파일은 복구할 수 없는 방법으로 삭제합니다.</li>
+  <li>계정 삭제를 요청하면 클라우드에 저장된 uid·닉네임·게임 세이브를 즉시 삭제하고, Apple 또는 Google 로그인 연동(Firebase Authentication 계정 — Google 계정 이메일 주소·이름·프로필 사진 주소 포함)을 삭제합니다. 전자적 파일은 복구할 수 없는 방법으로 삭제합니다. Apple·Google 계정 쪽의 연결 목록에서 앱을 지우는 방법은 아래 9항의 계정 삭제 안내 페이지에 있습니다.</li>
   <li>앱 내 삭제가 실패한 경우 아래 13항의 이메일로 요청하면 <strong>10일 이내</strong> 에 수동으로 파기합니다.</li>
   <li>Analytics·Crashlytics 데이터는 위 3항의 기간이 지나면 Google 의 처리 절차에 따라 자동 만료됩니다. 계정 삭제 시 Analytics 식별자도 초기화합니다.</li>
 </ul>
@@ -151,9 +164,10 @@
 </ul>
 <p>행사 방법은 두 가지입니다.</p>
 <ol>
-  <li><strong>앱 내에서</strong> — 설정 &gt; 계정 에서 닉네임 수정, 계정 삭제를 직접 할 수 있습니다.</li>
+  <li><strong>앱 내에서</strong> — 설정 &gt; 계정 · 데이터 에서 닉네임 수정, 계정 삭제를 직접 할 수 있습니다.</li>
   <li><strong>이메일로</strong> — <a href="mailto:onsaemigol@gmail.com">onsaemigol@gmail.com</a> 로 요청하면 <strong>10일 이내</strong> 에 처리하고 결과를 회신합니다.</li>
 </ol>
+<p>계정 삭제 단계, 앱 없이 이메일로 삭제를 요청하는 방법, 지워지는 데이터와 남는 데이터·보관 기간은 <a href="https://jeoungsung12.github.io/c2f-legal/delete/">계정 삭제 안내 페이지</a> 에 정리해 두었습니다.</p>
 <p>이용자는 법정대리인이나 위임을 받은 자를 통해서도 권리를 행사할 수 있습니다. 이 경우 위임장을 제출해 주셔야 합니다.</p>
 
 <h2>10. 안전성 확보 조치</h2>
@@ -161,7 +175,7 @@
   <li><strong>전송 구간 암호화</strong> — 모든 통신은 HTTPS(TLS) 로 암호화합니다.</li>
   <li><strong>접근 통제</strong> — 클라우드 데이터베이스에 보안 규칙을 적용해, 로그인한 본인의 문서만 읽고 쓸 수 있도록 제한합니다. 다른 이용자의 데이터에는 접근할 수 없습니다.</li>
   <li><strong>관리자 계정 최소화</strong> — 개인정보를 취급하는 관리 콘솔 계정은 1개이며 2단계 인증을 적용합니다.</li>
-  <li><strong>기기 증명</strong> — 변조된 클라이언트의 접근을 차단하기 위해 Apple App Attest 기반 기기 증명을 사용합니다.</li>
+  <li><strong>기기 증명</strong> — 변조된 클라이언트의 접근을 차단하기 위해 Apple App Attest(iOS)·Google Play Integrity(Android) 기반 기기 증명을 사용합니다.</li>
 </ul>
 
 <h2>11. 개인정보 자동 수집 장치의 설치·운영과 거부</h2>
@@ -169,16 +183,16 @@
 <div class="table-wrap"><table>
 <thead><tr><th>SDK</th><th>수집 정보</th><th>거부 방법</th></tr></thead>
 <tbody>
-<tr><td>Firebase Authentication</td><td>uid, IP</td><td>Apple 로그인을 하지 않으면 동작하지 않습니다</td></tr>
-<tr><td>Cloud Firestore</td><td>세이브 데이터, IP</td><td>Apple 로그인을 하지 않으면 동작하지 않습니다</td></tr>
-<tr><td>Google Analytics for Firebase</td><td>앱 인스턴스 ID(가명), 기기 정보, 이벤트</td><td>선택 동의를 하지 않거나, 설정에서 언제든 끌 수 있습니다</td></tr>
-<tr><td>Firebase Crashlytics</td><td>크래시 스택, 기기 상태</td><td>선택 동의를 하지 않거나, 설정에서 언제든 끌 수 있습니다</td></tr>
-<tr><td>Firebase Remote Config · App Check</td><td>Installations ID, 증명 토큰, IP</td><td>앱 동작에 필요해 개별 거부는 제공하지 않으며, 앱을 삭제하면 중단됩니다</td></tr>
+<tr><td>Firebase Authentication</td><td>uid, IP (Google 로그인 시 Google 계정 이메일 주소·이름·프로필 사진 주소)</td><td>Apple 또는 Google 로그인을 하지 않으면 동작하지 않습니다</td></tr>
+<tr><td>Cloud Firestore</td><td>세이브 데이터, IP</td><td>Apple 또는 Google 로그인을 하지 않으면 동작하지 않습니다</td></tr>
+<tr><td>Google Analytics for Firebase</td><td>앱 인스턴스 ID(가명), 기기 정보, 이벤트, 대략적인 지역(IP 로 추정)</td><td>선택 동의를 하지 않거나, 설정 &gt; 계정 · 데이터 &gt; <strong>진단·사용 통계 보내기</strong> 를 끄면 언제든 멈출 수 있습니다</td></tr>
+<tr><td>Firebase Crashlytics</td><td>크래시 스택, 기기 상태</td><td>선택 동의를 하지 않거나, 설정 &gt; 계정 · 데이터 &gt; <strong>진단·사용 통계 보내기</strong> 를 끄면 언제든 멈출 수 있습니다</td></tr>
+<tr><td>Firebase Remote Config · App Check</td><td>Installations ID, 증명 토큰(App Attest·Play Integrity), IP</td><td>앱 동작에 필요해 개별 거부는 제공하지 않으며, 앱을 삭제하면 중단됩니다</td></tr>
 </tbody>
 </table></div>
 
 <h2>12. 만 14세 미만 아동의 개인정보</h2>
-<p>개발자는 <strong>만 14세 미만 아동의 개인정보를 수집하지 않습니다.</strong> 앱 최초 실행 시 연령을 확인하며, 만 14세 미만으로 확인되면 계정(Apple 로그인) 기능을 제공하지 않고, 사용 통계·크래시 수집도 하지 않으며, 튜닝값 조회도 하지 않습니다. 이 경우 게임 데이터는 이용자 기기에만 저장되고 개발자에게 전송되지 않습니다.</p>
+<p>개발자는 <strong>만 14세 미만 아동의 개인정보를 수집하지 않습니다.</strong> 앱 최초 실행 시 연령을 확인하며, 만 14세 미만으로 확인되면 계정(Apple·Google 로그인) 기능을 제공하지 않고, 사용 통계·크래시 수집도 하지 않으며, 튜닝값 조회도 하지 않습니다. 이 경우 게임 데이터는 이용자 기기에만 저장되고 개발자에게 전송되지 않습니다.</p>
 
 <h2>13. 개인정보 보호책임자와 열람청구 접수·처리 창구</h2>
 <dl class="info">
@@ -202,17 +216,18 @@
 <p>또한 개인정보의 열람·정정·삭제·처리정지 요구에 대한 개발자의 조치에 불복이 있는 경우 「개인정보 보호법」 에 따라 행정심판을 청구할 수 있습니다.</p>
 
 <h2>15. 시행일과 변경 이력</h2>
-<p>이 개인정보처리방침은 <strong>2026년 9월 14일</strong> 부터 적용됩니다. 내용을 추가·삭제·수정할 때에는 시행 <strong>7일 전</strong> 부터 앱 내 공지와 이 페이지를 통해 알립니다. 다만 이용자 권리에 중대한 영향을 미치는 변경은 <strong>30일 전</strong> 에 알립니다.</p>
+<p>이 개인정보처리방침은 <strong>2026년 10월 3일</strong> 부터 적용됩니다. 내용을 추가·삭제·수정할 때에는 시행 <strong>7일 전</strong> 부터 앱 내 공지와 이 페이지를 통해 알립니다. 다만 이용자 권리에 중대한 영향을 미치는 변경은 <strong>30일 전</strong> 에 알립니다. v2 개정은 새로 출시하는 Android 판의 처리 내용을 더한 것으로, 이미 iOS 판을 이용하던 분께 적용되던 처리 내용을 줄이거나 바꾸지 않고 진단·사용 통계를 끄는 방법만 더해 이용자 권리를 넓히므로 게시일부터 시행합니다.</p>
 <div class="table-wrap"><table>
 <thead><tr><th>버전</th><th>시행일</th><th>변경 내용</th></tr></thead>
 <tbody>
 <tr><td>v1</td><td>2026년 9월 14일</td><td>최초 제정</td></tr>
+<tr><td>v2</td><td>2026년 10월 3일</td><td>Android 출시: Google 로그인 처리 항목(이메일 주소·이름·프로필 사진 주소)과 보유 기간·위탁·국외 이전 추가, 대략적인 지역 추정과 Play Integrity 명시, 계정 삭제 안내 페이지 링크와 진단·사용 통계 끄는 방법 추가</td></tr>
 </tbody>
 </table></div>
 
 <footer>
   <p>온새미골 · 게시 주체 정성윤 · <a href="../terms/">이용약관</a> · 문의 <a href="mailto:onsaemigol@gmail.com">onsaemigol@gmail.com</a></p>
-  <p>최종 수정 2026년 9월 14일</p>
+  <p>최종 수정 2026년 10월 3일</p>
 </footer>
 
 </main>

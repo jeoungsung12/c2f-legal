@@ -47,7 +47,7 @@
 <p class="lang"><strong>English</strong> | <a href="./" lang="ko">한국어</a></p>
 
 <h1>Privacy Policy</h1>
-<p class="meta">Onsaemigol (iOS) · Effective September 14, 2026 · Published by Jeong Seong-yun (individual developer)</p>
+<p class="meta">Onsaemigol (iOS · Android) · Effective October 3, 2026 · Published by Jeong Seong-yun (individual developer)</p>
 
 <dl class="info">
   <dt>Published by</dt><dd>Jeong Seong-yun (individual developer)</dd>
@@ -62,7 +62,8 @@
 <h2>1. Purposes of Processing</h2>
 <p>The Developer processes personal data only for the purposes below and will obtain prior consent if these purposes change.</p>
 <ul>
-  <li><strong>Account identification and save ownership</strong> — identifying the account created through Sign in with Apple and linking game progress data to that account.</li>
+  <li><strong>Account identification and save ownership</strong> — identifying the account created through Sign in with Apple (iOS) or Sign in with Google (Android) and linking game progress data to that account.</li>
+  <li><strong>Account management</strong> — the Google account email address that Firebase Authentication keeps in the account record when you sign in with Google is used only to verify your identity when you send an account deletion or other request by email. The App does not read this value, and it is not used for contact or marketing.</li>
   <li><strong>Cloud save backup and restore</strong> — restoring game progress data after a device change or reinstall.</li>
   <li><strong>Compatibility checks and bug fixing</strong> — checking the device, OS and app version, and analysing the causes of crashes.</li>
   <li><strong>Usage statistics (optional)</strong> — reviewing pseudonymised usage statistics only where the user has given optional consent.</li>
@@ -74,32 +75,42 @@
 <div class="table-wrap"><table>
 <thead><tr><th>Item</th><th>When / how collected</th><th>Purpose</th><th>Required / optional</th></tr></thead>
 <tbody>
-<tr><td>Firebase uid (based on the Apple user identifier)</td><td>Generated automatically on Sign in with Apple</td><td>Account identification, save ownership</td><td>Required when using an account</td></tr>
+<tr><td>Firebase uid (based on the Apple user identifier or the Google account identifier)</td><td>Generated automatically on Sign in with Apple (iOS) or Sign in with Google (Android)</td><td>Account identification, save ownership</td><td>Required when using an account</td></tr>
 <tr><td>Name supplied by Apple</td><td>Returned by Apple once, on the first Sign in with Apple</td><td>Not used — discarded immediately on receipt; never stored, displayed or transmitted</td><td>—</td></tr>
+<tr><td>Google account email address, name and profile photo URL</td><td>On Sign in with Google (Android), Google includes these in the sign-in token and Firebase Authentication keeps them in the account record. The App only passes the sign-in token to Firebase Authentication; it does not extract or read these values, display them, or put them in the game save, cloud save or usage statistics</td><td>Account management (the email address is used only to verify your identity when you send an account deletion or other request by email)</td><td>Required when using an account (Sign in with Google only)</td></tr>
 <tr><td>Nickname</td><td>Entered directly by the user in the App</td><td>In-game name</td><td>Required</td></tr>
 <tr><td>Game save (progress, inventory)</td><td>On cloud sync</td><td>Cloud restore</td><td>Required when using an account</td></tr>
 <tr><td>Device model, OS version, app version</td><td>Automatically when the App runs</td><td>Compatibility checks, crash analysis</td><td>Required</td></tr>
 <tr><td>Analytics app instance ID (pseudonymous)</td><td>Automatically on first launch after optional consent</td><td>Usage statistics</td><td>Optional</td></tr>
+<tr><td>Approximate region (country / city level)</td><td>Estimated by Google Analytics from the IP address, after optional consent</td><td>Usage statistics</td><td>Optional</td></tr>
 <tr><td>Firebase Installations ID</td><td>Automatically at app start (tuning-value and device attestation calls)</td><td>Identifying targets for tuning-value delivery, device attestation</td><td>Required</td></tr>
 <tr><td>Crash logs (stack trace, device state)</td><td>Automatically when a crash occurs, after optional consent</td><td>Bug fixing</td><td>Optional</td></tr>
 <tr><td>IP address</td><td>During communication with servers</td><td>Handling communications</td><td>Required</td></tr>
 </tbody>
 </table></div>
-<p><strong>Not collected:</strong> email address, phone number, location information, contacts, photos or camera, advertising identifier (IDFA), payment information. The App does not link <code>AdSupport.framework</code> and does not track users, so it does not display an App Tracking Transparency (ATT) prompt.</p>
-<p><strong>Using the App without an account:</strong> if you play without Sign in with Apple, your uid, nickname and game save are stored only on your device and are not transmitted to the Developer.</p>
+<p><strong>Not collected:</strong> phone number, precise location information, contacts, photos or camera, advertising identifiers (IDFA on iOS, advertising ID on Android), payment information. The iOS app does not link <code>AdSupport.framework</code> and does not track users, so it does not display an App Tracking Transparency (ATT) prompt. The Android app turns off advertising ID collection in Analytics and does not collect the advertising ID.</p>
+<ul>
+  <li><strong>Email address</strong> — Sign in with Apple requests only the name scope, so no email address is received from users who sign in with Apple. For users who sign in with Google, the email address is kept by Firebase Authentication as shown in the table above.</li>
+  <li><strong>Location</strong> — precise location (such as GPS) is not collected. Only if you give optional consent to sending diagnostics and usage statistics does Google Analytics estimate an approximate country- or city-level region from the IP address.</li>
+  <li><strong>Photos</strong> — the Google profile photo file is not received. Only the photo URL in the table above remains in the Firebase Authentication account record.</li>
+</ul>
+<p><strong>Using the App without an account:</strong> if you play as a guest without Sign in with Apple or Sign in with Google, no account (uid) is created, and your nickname and game save are stored only on your device and are not transmitted to the Developer.</p>
 
 <h2>3. Processing and Retention Periods</h2>
 <div class="table-wrap"><table>
 <thead><tr><th>Item</th><th>Retention period</th></tr></thead>
 <tbody>
 <tr><td>uid, nickname, game save</td><td>For as long as the account exists; destroyed immediately upon account deletion</td></tr>
+<tr><td>Google account email address, name and profile photo URL</td><td>For as long as the account exists; destroyed immediately upon account deletion</td></tr>
 <tr><td>Name supplied by Apple</td><td>Not retained (discarded immediately on receipt)</td></tr>
-<tr><td>Analytics data (including device information)</td><td>Expires automatically after 2 months at the user level</td></tr>
+<tr><td>Analytics data (including device information and approximate region)</td><td>Expires automatically after 2 months at the user level</td></tr>
 <tr><td>Crash logs</td><td>Expire automatically after 90 days</td></tr>
 <tr><td>Firebase Installations ID</td><td>Google's service processing period; reissuance stops when the App is deleted</td></tr>
-<tr><td>IP address</td><td>Not stored (processed only temporarily in the course of handling communications)</td></tr>
+<tr><td>IP address</td><td>Not stored separately by the Developer. Firebase Authentication keeps logged IP addresses for a few weeks for security and abuse prevention</td></tr>
 </tbody>
 </table></div>
+
+<p>When you delete your account, the App immediately requests deletion of the cloud save and Firebase Authentication account. Authentication data may take up to 180 days to be removed from Google's live and backup systems. Crashlytics starts removing data from live and backup systems after 90 days of retention. See <a href="https://firebase.google.com/support/privacy">Firebase Privacy and Security</a> for these service retention details.</p>
 
 <h2>4. Provision to Third Parties</h2>
 <p>The Developer does not provide users' personal data to third parties. The entrustment of processing described in sections 5 and 6 below is not provision to third parties.</p>
@@ -109,11 +120,11 @@
 <div class="table-wrap"><table>
 <thead><tr><th>Entrusted party</th><th>Entrusted work</th><th>Entrusted data</th></tr></thead>
 <tbody>
-<tr><td rowspan="5">Google LLC</td><td>Firebase Authentication (sign-in token verification, account identification)</td><td>uid, IP, access time</td></tr>
+<tr><td rowspan="5">Google LLC</td><td>Firebase Authentication (sign-in token verification, account identification, keeping the account record)</td><td>uid, Apple user identifier or Google account identifier, Google account email address / name / profile photo URL (when signing in with Google), IP, access time</td></tr>
 <tr><td>Cloud Firestore (cloud save storage and restore)</td><td>uid, nickname, game save, sync metadata, IP</td></tr>
-<tr><td>Google Analytics for Firebase (usage statistics) — only with optional consent</td><td>App instance ID (pseudonymous), device model / OS / app version, event logs, IP</td></tr>
+<tr><td>Google Analytics for Firebase (usage statistics) — only with optional consent</td><td>App instance ID (pseudonymous), device model / OS / app version, event logs, approximate region estimated from IP, IP</td></tr>
 <tr><td>Firebase Crashlytics (crash cause analysis) — only with optional consent</td><td>Crash stack trace, device state, app version, IP</td></tr>
-<tr><td>Firebase Remote Config · App Check (tuning-value delivery, blocking abnormal clients)</td><td>Firebase Installations ID, App Attest attestation token, IP</td></tr>
+<tr><td>Firebase Remote Config · App Check (tuning-value delivery, blocking abnormal clients)</td><td>Firebase Installations ID, App Attest attestation token (iOS), Play Integrity attestation token (Android), IP</td></tr>
 </tbody>
 </table></div>
 
@@ -123,25 +134,27 @@
 <thead><tr><th>Recipient</th><th>Destination country</th><th>Data transferred</th><th>Time and method of transfer</th><th>Purpose</th><th>Retention and use period</th></tr></thead>
 <tbody>
 <tr><td rowspan="5">Google LLC<br>(USA)<br>Privacy officer contact: <a href="https://support.google.com/policies/troubleshooter/7575787">Google privacy inquiry form</a></td>
-    <td>USA (Authentication infrastructure)</td><td>uid, IP, access time</td><td rowspan="5">Transmitted over HTTPS (TLS) at the time the service is used</td><td>Sign-in token verification, account identification</td><td>For as long as the account exists</td></tr>
+    <td>USA (Authentication infrastructure)</td><td>uid, Apple user identifier or Google account identifier, Google account email address / name / profile photo URL (when signing in with Google), IP, access time</td><td rowspan="5">Transmitted over HTTPS (TLS) at the time the service is used</td><td>Sign-in token verification, account identification, keeping the account record</td><td>For as long as the account exists</td></tr>
 <tr><td>Stored in the Seoul region, Republic of Korea. May be accessed from the USA and countries where Google data centers are located in the course of operations and support</td><td>uid, nickname, game save, sync metadata, IP</td><td>Cloud save storage and restore</td><td>For as long as the account exists</td></tr>
-<tr><td>USA and countries where Google data centers are located</td><td>App instance ID (pseudonymous), device information, event logs, IP</td><td>Usage statistics</td><td>2 months</td></tr>
+<tr><td>USA and countries where Google data centers are located</td><td>App instance ID (pseudonymous), device information, event logs, approximate region, IP</td><td>Usage statistics</td><td>2 months</td></tr>
 <tr><td>USA and countries where Google data centers are located</td><td>Crash stack trace, device state, app version, IP</td><td>Crash cause analysis</td><td>90 days</td></tr>
-<tr><td>USA and countries where Google data centers are located</td><td>Installations ID, App Attest attestation token, IP</td><td>Tuning-value delivery, blocking abnormal clients</td><td>Google's service processing period</td></tr>
+<tr><td>USA and countries where Google data centers are located</td><td>Installations ID, App Attest attestation token (iOS) / Play Integrity attestation token (Android), IP</td><td>Tuning-value delivery, blocking abnormal clients</td><td>Google's service processing period</td></tr>
 </tbody>
 </table></div>
 <p><strong>How to refuse and the consequences:</strong> users may refuse the transfer abroad. To refuse, do not give the required consent on the notice screen shown at first launch, or, if you have already created an account, delete your account in the App. If you refuse, <strong>the cloud save (account features) cannot be provided</strong>, but you may continue to play with data stored only on your device, without an account.</p>
 
-<h2>7. Relationship with Apple Inc.</h2>
+<h2>7. Relationship with Apple Inc. and Google LLC</h2>
 <ul>
-  <li><strong>Sign in with Apple</strong> is an authentication method through which Apple provides a user identifier to the Developer. In this process the Developer does not provide users' personal data to Apple and does not entrust the processing of personal data to Apple. Apple's privacy policy applies to Apple's processing.</li>
+  <li><strong>Sign in with Apple</strong> (iOS) is an authentication method through which Apple provides a user identifier to the Developer. In this process the Developer does not provide users' personal data to Apple and does not entrust the processing of personal data to Apple. Apple's privacy policy applies to Apple's processing.</li>
+  <li><strong>Sign in with Google</strong> (Android) is an authentication method through which Google provides a user identifier to the Developer. In this process the Developer does not provide users' personal data to Google, and receiving the sign-in method itself is not an entrustment of the processing of personal data. Google's privacy policy applies to Google's processing of your Google account. Firebase Authentication keeping the account record after sign-in is the entrustment of processing described in section 5 above.</li>
   <li>For <strong>beta distribution through TestFlight</strong>, testers' email addresses and device information are processed by Apple under its own policies. The Developer does not separately collect or retain tester email addresses.</li>
+  <li>For <strong>test distribution through Google Play</strong>, where testers are specified by an email list, the Developer adds the Google account email addresses of people taking part in the test to the tester list in the Play Console. These email addresses are used only to manage test participation, are kept only in the Play Console tester list, and are removed from the list when the test ends. Testers' installation and device information is processed by Google under its own policies.</li>
 </ul>
 
 <h2>8. Destruction Procedure and Method</h2>
 <ul>
   <li>Personal data is destroyed without delay when the retention period ends or the purpose of processing has been achieved.</li>
-  <li>When account deletion is requested, the uid, nickname and game save stored in the cloud are deleted immediately and the Sign in with Apple link is revoked. Electronic files are deleted by a method that makes them unrecoverable.</li>
+  <li>When account deletion is requested, the uid, nickname and game save stored in the cloud are deleted immediately, and the Sign in with Apple or Sign in with Google link (the Firebase Authentication account, including the Google account email address, name and profile photo URL) is deleted. Electronic files are deleted by a method that makes them unrecoverable. How to remove the App from the connected-apps list on the Apple or Google account side is explained on the account deletion page in section 9 below.</li>
   <li>If in-app deletion fails, a request sent to the email address in section 13 below will be destroyed manually <strong>within 10 days</strong>.</li>
   <li>Analytics and Crashlytics data expire automatically under Google's processing procedures once the periods in section 3 above have passed. The Analytics identifier is also reset upon account deletion.</li>
 </ul>
@@ -153,9 +166,10 @@
 </ul>
 <p>There are two ways to exercise these rights:</p>
 <ol>
-  <li><strong>In the App</strong> — under Settings &gt; Account you can change your nickname and delete your account yourself.</li>
+  <li><strong>In the App</strong> — under Settings &gt; Account · Data you can change your nickname and delete your account yourself.</li>
   <li><strong>By email</strong> — send a request to <a href="mailto:onsaemigol@gmail.com">onsaemigol@gmail.com</a>; it will be handled and the result will be sent to you <strong>within 10 days</strong>.</li>
 </ol>
+<p>The account deletion steps, how to request deletion by email without the App, and which data is deleted or kept (and for how long) are set out on the <a href="https://jeoungsung12.github.io/c2f-legal/delete/en.html">account deletion page</a>.</p>
 <p>Users may also exercise their rights through a legal representative or a person to whom they have delegated authority. In that case, a power of attorney must be submitted.</p>
 
 <h2>10. Security Measures</h2>
@@ -163,7 +177,7 @@
   <li><strong>Encryption in transit</strong> — all communications are encrypted with HTTPS (TLS).</li>
   <li><strong>Access control</strong> — security rules are applied to the cloud database so that a signed-in user can read and write only their own document. Other users' data cannot be accessed.</li>
   <li><strong>Minimal administrator accounts</strong> — there is one administrative console account that handles personal data, and two-factor authentication is applied to it.</li>
-  <li><strong>Device attestation</strong> — device attestation based on Apple App Attest is used to block access by tampered clients.</li>
+  <li><strong>Device attestation</strong> — device attestation based on Apple App Attest (iOS) and Google Play Integrity (Android) is used to block access by tampered clients.</li>
 </ul>
 
 <h2>11. Installation, Operation and Refusal of Devices That Automatically Collect Personal Data</h2>
@@ -171,16 +185,16 @@
 <div class="table-wrap"><table>
 <thead><tr><th>SDK</th><th>Information collected</th><th>How to refuse</th></tr></thead>
 <tbody>
-<tr><td>Firebase Authentication</td><td>uid, IP</td><td>Does not operate unless you use Sign in with Apple</td></tr>
-<tr><td>Cloud Firestore</td><td>Save data, IP</td><td>Does not operate unless you use Sign in with Apple</td></tr>
-<tr><td>Google Analytics for Firebase</td><td>App instance ID (pseudonymous), device information, events</td><td>Do not give optional consent, or turn it off in Settings at any time</td></tr>
-<tr><td>Firebase Crashlytics</td><td>Crash stack trace, device state</td><td>Do not give optional consent, or turn it off in Settings at any time</td></tr>
-<tr><td>Firebase Remote Config · App Check</td><td>Installations ID, attestation token, IP</td><td>Required for the App to operate, so individual refusal is not offered; collection stops when the App is deleted</td></tr>
+<tr><td>Firebase Authentication</td><td>uid, IP (when signing in with Google: Google account email address, name and profile photo URL)</td><td>Does not operate unless you use Sign in with Apple or Sign in with Google</td></tr>
+<tr><td>Cloud Firestore</td><td>Save data, IP</td><td>Does not operate unless you use Sign in with Apple or Sign in with Google</td></tr>
+<tr><td>Google Analytics for Firebase</td><td>App instance ID (pseudonymous), device information, events, approximate region (estimated from IP)</td><td>Do not give optional consent, or stop it at any time by turning off Settings &gt; Account · Data &gt; <strong>Send diagnostics &amp; usage stats</strong> (진단·사용 통계 보내기)</td></tr>
+<tr><td>Firebase Crashlytics</td><td>Crash stack trace, device state</td><td>Do not give optional consent, or stop it at any time by turning off Settings &gt; Account · Data &gt; <strong>Send diagnostics &amp; usage stats</strong> (진단·사용 통계 보내기)</td></tr>
+<tr><td>Firebase Remote Config · App Check</td><td>Installations ID, attestation token (App Attest / Play Integrity), IP</td><td>Required for the App to operate, so individual refusal is not offered; collection stops when the App is deleted</td></tr>
 </tbody>
 </table></div>
 
 <h2>12. Personal Data of Children Under 14</h2>
-<p>The Developer <strong>does not collect personal data of children under the age of 14.</strong> The user's age is checked at first launch. If the user is confirmed to be under 14, account (Sign in with Apple) features are not provided, usage statistics and crash data are not collected, and tuning values are not fetched. In that case, game data is stored only on the user's device and is not transmitted to the Developer.</p>
+<p>The Developer <strong>does not collect personal data of children under the age of 14.</strong> The user's age is checked at first launch. If the user is confirmed to be under 14, account (Sign in with Apple / Sign in with Google) features are not provided, usage statistics and crash data are not collected, and tuning values are not fetched. In that case, game data is stored only on the user's device and is not transmitted to the Developer.</p>
 
 <h2>13. Privacy Officer and Channel for Receiving and Handling Access Requests</h2>
 <dl class="info">
@@ -204,17 +218,18 @@
 <p>In addition, if you object to the Developer's action on a request for access, correction, deletion or suspension of processing of personal data, you may file an administrative appeal under the Personal Information Protection Act.</p>
 
 <h2>15. Effective Date and Revision History</h2>
-<p>This Privacy Policy applies from <strong>September 14, 2026</strong>. When any content is added, deleted or modified, notice will be given in the App and on this page from <strong>7 days</strong> before the effective date. However, changes that materially affect users' rights will be notified <strong>30 days</strong> in advance.</p>
+<p>This Privacy Policy applies from <strong>October 3, 2026</strong>. When any content is added, deleted or modified, notice will be given in the App and on this page from <strong>7 days</strong> before the effective date. However, changes that materially affect users' rights will be notified <strong>30 days</strong> in advance. Revision v2 adds the processing for the newly released Android version; it does not reduce or change the processing that already applied to users of the iOS version and only adds a way to turn off diagnostics and usage statistics, which widens users' rights, so it applies from the date of posting.</p>
 <div class="table-wrap"><table>
 <thead><tr><th>Version</th><th>Effective date</th><th>Changes</th></tr></thead>
 <tbody>
 <tr><td>v1</td><td>September 14, 2026</td><td>Initial version</td></tr>
+<tr><td>v2</td><td>October 3, 2026</td><td>Android release: added the data processed for Sign in with Google (email address, name, profile photo URL) with its retention, entrustment and transfer abroad; stated the approximate-region estimate and Play Integrity; added a link to the account deletion page and how to turn off diagnostics and usage statistics</td></tr>
 </tbody>
 </table></div>
 
 <footer>
   <p>Onsaemigol · Published by Jeong Seong-yun · <a href="../terms/en.html">Terms of Service</a> · Contact <a href="mailto:onsaemigol@gmail.com">onsaemigol@gmail.com</a></p>
-  <p>Last updated September 14, 2026</p>
+  <p>Last updated October 3, 2026</p>
 </footer>
 
 </main>
