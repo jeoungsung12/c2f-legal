@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Account Deletion — Onsaemigol</title>
+<style>
+  :root { --bg:#ffffff; --ink:#1d1d1f; --sub:#6e6e73; --link:#0066cc; --line:#d2d2d7; --th:#f5f5f7; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#000000; --ink:#f5f5f7; --sub:#a1a1a6; --link:#2997ff; --line:#424245; --th:#1d1d1f; }
+  }
+  * { box-sizing:border-box; }
+  html { -webkit-text-size-adjust:100%; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:16px/1.7 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Segoe UI",Roboto,sans-serif; }
+  main { max-width:720px; margin:0 auto; padding:32px 16px 72px; }
+  a { color:var(--link); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .lang { margin:0 0 32px; font-size:14px; color:var(--sub); }
+  .lang strong { color:var(--ink); font-weight:600; }
+  h1 { font-size:28px; line-height:1.3; font-weight:700; margin:0 0 8px; letter-spacing:-0.01em; }
+  h2 { font-size:19px; line-height:1.4; font-weight:600; margin:40px 0 12px; padding-top:24px; border-top:1px solid var(--line); }
+  .meta { margin:0 0 32px; font-size:14px; color:var(--sub); }
+  p { margin:0 0 14px; }
+  ul, ol { margin:0 0 14px; padding-left:22px; }
+  li { margin:6px 0; }
+  dl.info { margin:0 0 16px; display:grid; grid-template-columns:max-content 1fr; gap:4px 20px; font-size:15px; }
+  dl.info dt { color:var(--sub); }
+  dl.info dd { margin:0; }
+  .table-wrap { overflow-x:auto; margin:12px 0 16px; }
+  table { width:100%; border-collapse:collapse; font-size:14px; line-height:1.55; }
+  th, td { border:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top; }
+  th { background:var(--th); font-weight:600; }
+  .note { font-size:14px; color:var(--sub); }
+  footer { margin-top:56px; padding-top:16px; border-top:1px solid var(--line); font-size:13px; color:var(--sub); }
+  footer p { margin:0 0 4px; }
+</style>
+</head>
+<body>
+<main>
+
+<p class="lang"><strong>English</strong> | <a href="./" lang="ko">한국어</a></p>
+
+<h1>Account Deletion</h1>
+<p class="meta">Onsaemigol (Android · iOS) · Developer: Jeong Seong-yun (individual developer)</p>
+
+<dl class="info">
+    <dt>App</dt><dd>Onsaemigol (온새미골)</dd>
+    <dt>Developer</dt><dd>Jeong Seong-yun (정성윤), individual developer</dd>
+    <dt>Contact</dt><dd><a href="mailto:onsaemigol@gmail.com">onsaemigol@gmail.com</a></dd>
+</dl>
+
+<p>This page explains how to delete your Onsaemigol account and the data linked to it. You can delete it inside the app, or ask by email if the app is no longer installed. The Korean version is the authoritative text.</p>
+
+<h2>1. Delete in the app</h2>
+<ol>
+  <li>Open Onsaemigol and open <strong>Settings</strong>.</li>
+  <li>Tap <strong>Account · Data &gt; Delete account</strong> (계정 · 데이터 &gt; 계정 삭제).</li>
+  <li>Read the notice, tap [OK], type the confirmation word shown on screen, and tap [OK] again.</li>
+  <li>Confirm once more with the account you signed in with (Google on Android, Apple on iPhone).</li>
+  <li>When the app returns to the first screen, deletion is complete.</li>
+</ol>
+<p class="note">An internet connection is required. If the connection drops, the remaining steps continue the next time you open the app.</p>
+
+<h2>2. Request deletion without the app</h2>
+<p>If you have already removed the app, or deletion in the app does not finish, email us.</p>
+<ul>
+  <li>To: <a href="mailto:onsaemigol@gmail.com?subject=Account%20deletion%20request">onsaemigol@gmail.com</a></li>
+  <li>Subject: Account deletion request</li>
+  <li>Body: the email address of the Google account you signed in with. If you signed in with Apple, your in-game nickname and the date you last played.</li>
+</ul>
+<p>Sending from the same address you signed in with makes verification faster. We may reply to ask for more details to confirm it is your account. We delete the data and reply within <strong>10 days</strong> of receiving the request.</p>
+
+<h2>3. Data that is deleted</h2>
+<div class="table-wrap">
+<table>
+  <tr><th>Data</th><th>When</th></tr>
+  <tr><td>Account identifier (uid) and sign-in link, including the Google account email address, name and profile photo URL kept in the sign-in record</td><td>Immediately</td></tr>
+  <tr><td>Nickname and the game progress backed up to the cloud</td><td>Immediately</td></tr>
+  <tr><td>Game progress saved on this device</td><td>Immediately when deleted in the app; also removed when you uninstall the app</td></tr>
+  <tr><td>Usage statistics identifier</td><td>Reset immediately when deleted in the app</td></tr>
+</table>
+</div>
+
+<h2>4. Data that is kept, and for how long</h2>
+<p>The data below is not linked to your account. It stays for a fixed period after deletion and is then removed automatically.</p>
+<div class="table-wrap">
+<table>
+  <tr><th>Data</th><th>Retention</th></tr>
+  <tr><td>Usage statistics (only if you agreed to send diagnostics and usage statistics; pseudonymous)</td><td>Records tied to the pseudonymous identifier are deleted automatically after up to 2 months. Aggregate figures that cannot identify you (for example, daily user counts) may remain</td></tr>
+  <tr><td>Crash reports (only with the same consent)</td><td>Deleted automatically after up to 90 days</td></tr>
+  <tr><td>Firebase installation ID (used to deliver settings and to check app integrity)</td><td>No longer used after you uninstall the app; deleted after Google's processing period</td></tr>
+</table>
+</div>
+<p>The app has no payments, so no data is kept for legal record-keeping.</p>
+
+<h2>5. If you played as a guest</h2>
+<p>There is no account data on our servers. Use <strong>Settings &gt; Account · Data &gt; Local reset</strong> (로컬 초기화) in the app, or uninstall the app, to remove the game progress on your device.</p>
+
+<h2>6. Removing only the sign-in connection</h2>
+<p>Separately from account deletion, you can remove Onsaemigol from the list of third-party apps and services connected to your Google account (Google Account &gt; Security). On iPhone, use the "Sign in with Apple" list under your Apple Account in the Settings app.</p>
+
+<footer>
+  <p>Onsaemigol · Developer Jeong Seong-yun · <a href="../privacy/en.html">Privacy Policy</a> · <a href="../terms/en.html">Terms of Service</a> · Contact <a href="mailto:onsaemigol@gmail.com">onsaemigol@gmail.com</a></p>
+  <p>Last updated October 3, 2026</p>
+</footer>
+
+</main>
+</body>
+</html>
