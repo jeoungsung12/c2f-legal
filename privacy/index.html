@@ -47,7 +47,7 @@
 <p class="lang"><a href="en.html" lang="en">English</a> | <strong>한국어</strong></p>
 
 <h1>개인정보처리방침</h1>
-<p class="meta">온새미골 (iOS · Android) · 시행일 2026년 10월 3일 · 게시 주체 정성윤 (개인 개발자)</p>
+<p class="meta">온새미골 (iOS · Android) · 시행일 2026년 10월 4일 · 게시 주체 정성윤 (개인 개발자)</p>
 
 <dl class="info">
     <dt>게시 주체</dt><dd>정성윤 (개인 개발자)</dd>
@@ -89,6 +89,7 @@
 <p><strong>수집하지 않는 항목:</strong> 전화번호, 정확한 위치정보, 연락처, 사진·카메라, 광고 식별자(iOS 의 IDFA, Android 의 광고 ID), 결제 정보. iOS 앱은 <code>AdSupport.framework</code> 를 링크하지 않으며 추적을 하지 않으므로 앱 추적 투명성(ATT) 요청 창을 띄우지 않습니다. Android 앱은 Analytics 의 광고 ID 수집 설정을 꺼 두어 광고 ID 를 수집하지 않습니다.</p>
 <ul>
   <li><strong>이메일 주소</strong> — Apple 로그인은 이름 범위만 요청하므로 Apple 로그인 사용자의 이메일 주소는 받지 않습니다. Google 로그인 사용자의 이메일 주소는 위 표와 같이 Firebase Authentication 이 보관합니다.</li>
+  <li><strong>마이크·음성</strong> — 경로당 노래방 체험의 노래 단계에서만, 사용자가 허용한 경우 마이크로 소리의 크기만 기기 안에서 잠깐 잽니다. 소리를 녹음·저장하거나 서버로 보내지 않으며, 그 단계가 끝나면 마이크를 바로 닫습니다. 허용하지 않아도 버튼을 눌러 같은 체험을 할 수 있습니다.</li>
   <li><strong>위치</strong> — 정확한 위치(GPS 등)는 수집하지 않습니다. 진단·사용 통계 전송에 선택 동의한 경우에만 Google Analytics 가 IP 주소로 국가·도시 수준의 대략적인 지역을 추정합니다.</li>
   <li><strong>사진</strong> — Google 프로필 사진 파일은 받지 않습니다. 위 표의 사진 주소(URL)만 Firebase Authentication 의 계정 기록에 남습니다.</li>
 </ul>
@@ -98,11 +99,12 @@
 <div class="table-wrap"><table>
 <thead><tr><th>항목</th><th>보유 기간</th></tr></thead>
 <tbody>
-<tr><td>uid · 닉네임 · 게임 세이브</td><td>계정 존속 기간. 계정 삭제 시 즉시 파기</td></tr>
-<tr><td>Google 계정 이메일 주소·이름·프로필 사진 주소</td><td>계정 존속 기간. 계정 삭제 시 즉시 파기</td></tr>
+<tr><td>클라우드 세이브의 uid · 닉네임 · 게임 세이브</td><td>계정 존속 기간. 계정 삭제 시 클라우드 문서 삭제 요청</td></tr>
+<tr><td>Firebase Authentication의 uid · 로그인 계정 식별자</td><td>계정 존속 기간. 계정 삭제 시 삭제 요청. 운영·백업 시스템 삭제 완료는 최대 180일</td></tr>
+<tr><td>Google 계정 이메일 주소·이름·프로필 사진 주소</td><td>계정 존속 기간. 계정 삭제 시 삭제 요청. 인증 정보의 운영·백업 시스템 삭제는 최대 180일</td></tr>
 <tr><td>Apple 이 제공하는 이름</td><td>보유하지 않음 (수신 즉시 폐기)</td></tr>
-<tr><td>Analytics 데이터 (기기 정보·대략적인 지역 포함)</td><td>사용자 단위 2개월 후 자동 만료</td></tr>
-<tr><td>크래시 로그</td><td>90일 후 자동 만료</td></tr>
+<tr><td>Analytics 데이터 (기기 정보·대략적인 지역 포함)</td><td>사용자·이벤트 단위 보관 설정 2개월. 만료 데이터는 Google의 월별 삭제 절차에 따라 처리되며, 집계 통계에는 이 설정이 적용되지 않음</td></tr>
+<tr><td>크래시 로그</td><td>90일 보관 뒤 운영·백업 시스템에서 삭제 절차 시작</td></tr>
 <tr><td>Firebase Installations ID</td><td>Google 서비스 처리 기간. 앱 삭제 시 재발급 중단</td></tr>
 <tr><td>IP 주소</td><td>개발자는 별도로 저장하지 않음. Firebase Authentication은 보안·악용 방지를 위해 기록된 IP 주소를 수 주간 보관</td></tr>
 </tbody>
@@ -134,8 +136,8 @@
 <tr><td rowspan="5">Google LLC<br>(미국)<br>개인정보 보호책임자 문의: <a href="https://support.google.com/policies/troubleshooter/7575787">Google 개인정보 문의 창구</a></td>
     <td>미국 (Authentication 인프라)</td><td>uid, Apple 사용자 식별자 또는 Google 계정 식별자, Google 계정 이메일 주소·이름·프로필 사진 주소(Google 로그인 시), IP, 접속 시각</td><td rowspan="5">서비스 이용 시점에 HTTPS(TLS) 로 전송</td><td>로그인 토큰 검증·계정 식별·계정 기록 보관</td><td>계정 존속 기간</td></tr>
 <tr><td>대한민국 서울 리전에 저장. 운영·지원 과정에서 미국 및 Google 데이터센터 소재국에서 접근 가능</td><td>uid, 닉네임, 게임 세이브, 동기화 메타, IP</td><td>클라우드 세이브 보관·복구</td><td>계정 존속 기간</td></tr>
-<tr><td>미국 및 Google 데이터센터 소재국</td><td>앱 인스턴스 ID(가명), 기기 정보, 이벤트 로그, 대략적인 지역, IP</td><td>사용 통계</td><td>2개월</td></tr>
-<tr><td>미국 및 Google 데이터센터 소재국</td><td>크래시 스택, 기기 상태, 앱 버전, IP</td><td>크래시 원인 분석</td><td>90일</td></tr>
+<tr><td>미국 및 Google 데이터센터 소재국</td><td>앱 인스턴스 ID(가명), 기기 정보, 이벤트 로그, 대략적인 지역, IP</td><td>사용 통계</td><td>사용자·이벤트 단위 2개월 설정, 만료 후 월별 삭제(3항)</td></tr>
+<tr><td>미국 및 Google 데이터센터 소재국</td><td>크래시 스택, 기기 상태, 앱 버전, IP</td><td>크래시 원인 분석</td><td>90일 보관 뒤 삭제 절차 시작</td></tr>
 <tr><td>미국 및 Google 데이터센터 소재국</td><td>Installations ID, App Attest 증명 토큰(iOS)·Play Integrity 증명 토큰(Android), IP</td><td>튜닝값 배포, 비정상 클라이언트 차단</td><td>Google 서비스 처리 기간</td></tr>
 </tbody>
 </table></div>
@@ -152,9 +154,9 @@
 <h2>8. 파기 절차와 방법</h2>
 <ul>
   <li>보유 기간이 끝나거나 처리 목적이 달성되면 지체 없이 파기합니다.</li>
-  <li>계정 삭제를 요청하면 클라우드에 저장된 uid·닉네임·게임 세이브를 즉시 삭제하고, Apple 또는 Google 로그인 연동(Firebase Authentication 계정 — Google 계정 이메일 주소·이름·프로필 사진 주소 포함)을 삭제합니다. 전자적 파일은 복구할 수 없는 방법으로 삭제합니다. Apple·Google 계정 쪽의 연결 목록에서 앱을 지우는 방법은 아래 9항의 계정 삭제 안내 페이지에 있습니다.</li>
+  <li>계정 삭제를 요청하면 앱은 클라우드에 저장된 uid·닉네임·게임 세이브 문서와 Apple 또는 Google 로그인 연동(Firebase Authentication 계정 — Google 계정 이메일 주소·이름·프로필 사진 주소 포함)의 삭제를 즉시 요청합니다. Google의 운영·백업 시스템에서의 삭제 절차와 기간은 3항을 따릅니다. 전자적 파일은 복구할 수 없는 방법으로 삭제합니다. Apple·Google 계정 쪽의 연결 목록에서 앱을 지우는 방법은 아래 9항의 계정 삭제 안내 페이지에 있습니다.</li>
   <li>앱 내 삭제가 실패한 경우 아래 13항의 이메일로 요청하면 <strong>10일 이내</strong> 에 수동으로 파기합니다.</li>
-  <li>Analytics·Crashlytics 데이터는 위 3항의 기간이 지나면 Google 의 처리 절차에 따라 자동 만료됩니다. 계정 삭제 시 Analytics 식별자도 초기화합니다.</li>
+  <li>Analytics·Crashlytics 데이터는 위 3항의 기간이 지나면 Google의 처리 절차에 따라 삭제됩니다. 계정 삭제 시 Analytics 식별자도 초기화합니다.</li>
 </ul>
 
 <h2>9. 정보주체와 법정대리인의 권리·의무와 행사 방법</h2>

@@ -47,7 +47,7 @@
 <p class="lang"><strong>English</strong> | <a href="./" lang="ko">한국어</a></p>
 
 <h1>Privacy Policy</h1>
-<p class="meta">Onsaemigol (iOS · Android) · Effective October 3, 2026 · Published by Jeong Seong-yun (individual developer)</p>
+<p class="meta">Onsaemigol (iOS · Android) · Effective October 4, 2026 · Published by Jeong Seong-yun (individual developer)</p>
 
 <dl class="info">
   <dt>Published by</dt><dd>Jeong Seong-yun (individual developer)</dd>
@@ -90,6 +90,7 @@
 </table></div>
 <p><strong>Not collected:</strong> phone number, precise location information, contacts, photos or camera, advertising identifiers (IDFA on iOS, advertising ID on Android), payment information. The iOS app does not link <code>AdSupport.framework</code> and does not track users, so it does not display an App Tracking Transparency (ATT) prompt. The Android app turns off advertising ID collection in Analytics and does not collect the advertising ID.</p>
 <ul>
+  <li><strong>Microphone and voice</strong> — Only during the singing step of the senior hall karaoke activity, and only if you allow it, the app briefly measures how loud the sound is, on your device. It does not record, store or send any audio, and it closes the microphone as soon as that step ends. If you do not allow it, you can complete the same activity by holding a button.</li>
   <li><strong>Email address</strong> — Sign in with Apple requests only the name scope, so no email address is received from users who sign in with Apple. For users who sign in with Google, the email address is kept by Firebase Authentication as shown in the table above.</li>
   <li><strong>Location</strong> — precise location (such as GPS) is not collected. Only if you give optional consent to sending diagnostics and usage statistics does Google Analytics estimate an approximate country- or city-level region from the IP address.</li>
   <li><strong>Photos</strong> — the Google profile photo file is not received. Only the photo URL in the table above remains in the Firebase Authentication account record.</li>
@@ -100,11 +101,12 @@
 <div class="table-wrap"><table>
 <thead><tr><th>Item</th><th>Retention period</th></tr></thead>
 <tbody>
-<tr><td>uid, nickname, game save</td><td>For as long as the account exists; destroyed immediately upon account deletion</td></tr>
-<tr><td>Google account email address, name and profile photo URL</td><td>For as long as the account exists; destroyed immediately upon account deletion</td></tr>
+<tr><td>uid, nickname and game save in cloud save documents</td><td>For as long as the account exists; cloud document deletion is requested when the account is deleted</td></tr>
+<tr><td>Firebase Authentication uid and sign-in account identifiers</td><td>For as long as the account exists; deletion is requested when the account is deleted. Removal from live and backup systems can take up to 180 days</td></tr>
+<tr><td>Google account email address, name and profile photo URL</td><td>For as long as the account exists; deletion requested when the account is deleted. Removal of authentication data from live and backup systems can take up to 180 days</td></tr>
 <tr><td>Name supplied by Apple</td><td>Not retained (discarded immediately on receipt)</td></tr>
-<tr><td>Analytics data (including device information and approximate region)</td><td>Expires automatically after 2 months at the user level</td></tr>
-<tr><td>Crash logs</td><td>Expire automatically after 90 days</td></tr>
+<tr><td>Analytics data (including device information and approximate region)</td><td>User-level and event-level retention is set to 2 months. Expired data is processed through Google’s monthly deletion cycle; this setting does not apply to aggregate statistics</td></tr>
+<tr><td>Crash logs</td><td>Retained for 90 days before removal from live and backup systems begins</td></tr>
 <tr><td>Firebase Installations ID</td><td>Google's service processing period; reissuance stops when the App is deleted</td></tr>
 <tr><td>IP address</td><td>Not stored separately by the Developer. Firebase Authentication keeps logged IP addresses for a few weeks for security and abuse prevention</td></tr>
 </tbody>
@@ -136,8 +138,8 @@
 <tr><td rowspan="5">Google LLC<br>(USA)<br>Privacy officer contact: <a href="https://support.google.com/policies/troubleshooter/7575787">Google privacy inquiry form</a></td>
     <td>USA (Authentication infrastructure)</td><td>uid, Apple user identifier or Google account identifier, Google account email address / name / profile photo URL (when signing in with Google), IP, access time</td><td rowspan="5">Transmitted over HTTPS (TLS) at the time the service is used</td><td>Sign-in token verification, account identification, keeping the account record</td><td>For as long as the account exists</td></tr>
 <tr><td>Stored in the Seoul region, Republic of Korea. May be accessed from the USA and countries where Google data centers are located in the course of operations and support</td><td>uid, nickname, game save, sync metadata, IP</td><td>Cloud save storage and restore</td><td>For as long as the account exists</td></tr>
-<tr><td>USA and countries where Google data centers are located</td><td>App instance ID (pseudonymous), device information, event logs, approximate region, IP</td><td>Usage statistics</td><td>2 months</td></tr>
-<tr><td>USA and countries where Google data centers are located</td><td>Crash stack trace, device state, app version, IP</td><td>Crash cause analysis</td><td>90 days</td></tr>
+<tr><td>USA and countries where Google data centers are located</td><td>App instance ID (pseudonymous), device information, event logs, approximate region, IP</td><td>Usage statistics</td><td>2-month user/event retention setting, followed by monthly deletion (section 3)</td></tr>
+<tr><td>USA and countries where Google data centers are located</td><td>Crash stack trace, device state, app version, IP</td><td>Crash cause analysis</td><td>90 days before removal begins</td></tr>
 <tr><td>USA and countries where Google data centers are located</td><td>Installations ID, App Attest attestation token (iOS) / Play Integrity attestation token (Android), IP</td><td>Tuning-value delivery, blocking abnormal clients</td><td>Google's service processing period</td></tr>
 </tbody>
 </table></div>
@@ -154,7 +156,7 @@
 <h2>8. Destruction Procedure and Method</h2>
 <ul>
   <li>Personal data is destroyed without delay when the retention period ends or the purpose of processing has been achieved.</li>
-  <li>When account deletion is requested, the uid, nickname and game save stored in the cloud are deleted immediately, and the Sign in with Apple or Sign in with Google link (the Firebase Authentication account, including the Google account email address, name and profile photo URL) is deleted. Electronic files are deleted by a method that makes them unrecoverable. How to remove the App from the connected-apps list on the Apple or Google account side is explained on the account deletion page in section 9 below.</li>
+  <li>When account deletion is requested, the App immediately requests deletion of the cloud documents containing the uid, nickname and game save, and of the Sign in with Apple or Sign in with Google link (the Firebase Authentication account, including the Google account email address, name and profile photo URL). Removal from Google’s live and backup systems follows the procedures and periods in section 3. Electronic files are deleted by a method that makes them unrecoverable. How to remove the App from the connected-apps list on the Apple or Google account side is explained on the account deletion page in section 9 below.</li>
   <li>If in-app deletion fails, a request sent to the email address in section 13 below will be destroyed manually <strong>within 10 days</strong>.</li>
   <li>Analytics and Crashlytics data expire automatically under Google's processing procedures once the periods in section 3 above have passed. The Analytics identifier is also reset upon account deletion.</li>
 </ul>
@@ -218,18 +220,18 @@
 <p>In addition, if you object to the Developer's action on a request for access, correction, deletion or suspension of processing of personal data, you may file an administrative appeal under the Personal Information Protection Act.</p>
 
 <h2>15. Effective Date and Revision History</h2>
-<p>This Privacy Policy applies from <strong>October 3, 2026</strong>. When any content is added, deleted or modified, notice will be given in the App and on this page from <strong>7 days</strong> before the effective date. However, changes that materially affect users' rights will be notified <strong>30 days</strong> in advance. Revision v2 adds the processing for the newly released Android version; it does not reduce or change the processing that already applied to users of the iOS version and only adds a way to turn off diagnostics and usage statistics, which widens users' rights, so it applies from the date of posting.</p>
+<p>This Privacy Policy applies from <strong>October 4, 2026</strong>. When any content is added, deleted or modified, notice will be given in the App and on this page from <strong>7 days</strong> before the effective date. However, changes that materially affect users' rights will be notified <strong>30 days</strong> in advance. Revision v2 adds the processing for the newly released Android version; it does not reduce or change the processing that already applied to users of the iOS version and only adds a way to turn off diagnostics and usage statistics, which widens users' rights, so it applies from the date of posting.</p>
 <div class="table-wrap"><table>
 <thead><tr><th>Version</th><th>Effective date</th><th>Changes</th></tr></thead>
 <tbody>
 <tr><td>v1</td><td>September 14, 2026</td><td>Initial version</td></tr>
-<tr><td>v2</td><td>October 3, 2026</td><td>Android release: added the data processed for Sign in with Google (email address, name, profile photo URL) with its retention, entrustment and transfer abroad; stated the approximate-region estimate and Play Integrity; added a link to the account deletion page and how to turn off diagnostics and usage statistics</td></tr>
+<tr><td>v2</td><td>October 4, 2026</td><td>Android release: added the data processed for Sign in with Google (email address, name, profile photo URL) with its retention, entrustment and transfer abroad; stated the approximate-region estimate and Play Integrity; added a link to the account deletion page and how to turn off diagnostics and usage statistics</td></tr>
 </tbody>
 </table></div>
 
 <footer>
   <p>Onsaemigol · Published by Jeong Seong-yun · <a href="../terms/en.html">Terms of Service</a> · Contact <a href="mailto:onsaemigol@gmail.com">onsaemigol@gmail.com</a></p>
-  <p>Last updated October 3, 2026</p>
+  <p>Last updated October 4, 2026</p>
 </footer>
 
 </main>

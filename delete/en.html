@@ -75,7 +75,7 @@
 <div class="table-wrap">
 <table>
   <tr><th>Data</th><th>When</th></tr>
-  <tr><td>Account identifier (uid) and sign-in link, including the Google account email address, name and profile photo URL kept in the sign-in record</td><td>Immediately</td></tr>
+  <tr><td>Account identifier (uid) and sign-in link, including the Google account email address, name and profile photo URL kept in the sign-in record</td><td>Deletion is requested immediately. Firebase Authentication may take up to 180 days to remove data from live and backup systems</td></tr>
   <tr><td>Nickname and the game progress backed up to the cloud</td><td>Immediately</td></tr>
   <tr><td>Game progress saved on this device</td><td>Immediately when deleted in the app; also removed when you uninstall the app</td></tr>
   <tr><td>Usage statistics identifier</td><td>Reset immediately when deleted in the app</td></tr>
@@ -88,12 +88,13 @@
 <table>
   <tr><th>Data</th><th>Retention</th></tr>
   <tr><td>Usage statistics (only if you agreed to send diagnostics and usage statistics; pseudonymous)</td><td>Records tied to the pseudonymous identifier are deleted automatically after up to 2 months. Aggregate figures that cannot identify you (for example, daily user counts) may remain</td></tr>
-  <tr><td>Crash reports (only with the same consent)</td><td>Deleted automatically after up to 90 days</td></tr>
-  <tr><td>Firebase installation ID (used to deliver settings and to check app integrity)</td><td>No longer used after you uninstall the app; deleted after Google's processing period</td></tr>
+  <tr><td>Crash reports (only with the same consent)</td><td>Retained for 90 days before Firebase starts removing it from live and backup systems</td></tr>
+  <tr><td>Firebase installation ID (used to deliver settings and to check app integrity)</td><td>Uninstalling the app does not immediately delete Google's stored copy. Retention and deletion follow the relevant Firebase service's policy</td></tr>
 </table>
 </div>
 <p>The app has no payments, so no data is kept for legal record-keeping.</p>
 
+<p>Service-specific retention follows <a href="https://firebase.google.com/support/privacy">Firebase Privacy and Security</a>.</p>
 <h2>5. If you played as a guest</h2>
 <p>There is no account data on our servers. Use <strong>Settings &gt; Account · Data &gt; Local reset</strong> (로컬 초기화) in the app, or uninstall the app, to remove the game progress on your device.</p>
 
