@@ -121,9 +121,9 @@
 <tr><td>Crash logs</td><td>Retained for 90 days before removal from live and backup systems begins</td></tr>
 <tr><td>Firebase Installations ID</td><td>Google's service processing period; reissuance stops when the App is deleted</td></tr>
 <tr><td>IP address</td><td>Not stored separately by the Developer. Firebase Authentication keeps logged IP addresses for a few weeks for security and abuse prevention</td></tr>
-<tr><td>Friend code, friend / block lists, connection ID, room ID</td><td>While the account exists. Not removed by in-app account deletion — deleted within 10 days on request to the email in Section 13</td></tr>
+<tr><td>Friend code, friend / block lists, connection ID, room ID</td><td>While the account exists. Deleted by the App on account deletion (including your code left in other users' friend lists and requests)</td></tr>
 <tr><td>Nickname reservation</td><td>Deleted by the App when you change your nickname or delete your account</td></tr>
-<tr><td>In-app purchase records</td><td>While the account exists (for restoring purchases). Deleted within 10 days on request to the email in Section 13</td></tr>
+<tr><td>In-app purchase records</td><td>While the account exists (for restoring purchases). Deleted by the App on account deletion. Payment history held by Apple and Google follows each store's policy</td></tr>
 <tr><td>Reports (fixed reason numbers)</td><td>Deleted within 1 year after review by the operator</td></tr>
 <tr><td>Ad-related data</td><td>Not kept by the Developer. Per Unity retention policy</td></tr>
 <tr><td>Epic Online Services connection data</td><td>Not kept by the Developer. Connection ends when the room closes; logs per Epic policy</td></tr>
@@ -178,7 +178,7 @@
 <h2>8. Destruction Procedure and Method</h2>
 <ul>
   <li>Personal data is destroyed without delay when the retention period ends or the purpose of processing has been achieved.</li>
-  <li>When account deletion is requested, the App immediately requests deletion of the cloud documents containing the uid, nickname and game save, and of the Sign in with Apple or Sign in with Google link (the Firebase Authentication account, including the Google account email address, name and profile photo URL). Removal from Google’s live and backup systems follows the procedures and periods in section 3. Electronic files are deleted by a method that makes them unrecoverable. How to remove the App from the connected-apps list on the Apple or Google account side is explained on the account deletion page in section 9 below.</li>
+  <li>When account deletion is requested, the App immediately requests deletion of the cloud documents containing the uid, nickname and game save, the in-app purchase records, the friend code with friend and block lists, the nickname reservation, and of the Sign in with Apple or Sign in with Google link (the Firebase Authentication account, including the Google account email address, name and profile photo URL). Removal from Google’s live and backup systems follows the procedures and periods in section 3. Electronic files are deleted by a method that makes them unrecoverable. How to remove the App from the connected-apps list on the Apple or Google account side is explained on the account deletion page in section 9 below.</li>
   <li>If in-app deletion fails, a request sent to the email address in section 13 below will be destroyed manually <strong>within 10 days</strong>.</li>
   <li>Analytics and Crashlytics data expire automatically under Google's processing procedures once the periods in section 3 above have passed. The Analytics identifier is also reset upon account deletion.</li>
 </ul>
