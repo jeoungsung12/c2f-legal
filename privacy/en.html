@@ -47,7 +47,7 @@
 <p class="lang"><strong>English</strong> | <a href="./" lang="ko">한국어</a></p>
 
 <h1>Privacy Policy</h1>
-<p class="meta">Onsaemigol (iOS · Android) · Effective October 4, 2026 · Published by Jeong Seong-yun (individual developer)</p>
+<p class="meta">Onsaemigol (iOS · Android) · Effective October 22, 2026 · Published by Jeong Seong-yun (individual developer)</p>
 
 <dl class="info">
   <dt>Published by</dt><dd>Jeong Seong-yun (individual developer)</dd>
@@ -68,8 +68,12 @@
   <li><strong>Compatibility checks and bug fixing</strong> — checking the device, OS and app version, and analysing the causes of crashes.</li>
   <li><strong>Usage statistics (optional)</strong> — reviewing pseudonymised usage statistics only where the user has given optional consent.</li>
   <li><strong>Delivering tuning values and blocking abnormal clients</strong> — delivering game balance values and blocking access by tampered clients.</li>
+  <li><strong>Rewarded ads (optional)</strong> — Ads are shown, and rewards given, only when you choose [Watch ad] at an in-game ad entrance. The ad SDK processes device information for serving ads, frequency limits and fraud prevention. There are no forced ads.</li>
+  <li><strong>Playing with friends (optional, account users)</strong> — You add friends by friend code and play together in rooms only friends can join. Connection IDs and IP addresses are processed to connect devices. There is no free chat — only fixed greetings.</li>
+  <li><strong>Preventing duplicate nicknames</strong> — Nicknames are reserved so that two people cannot use the same one.</li>
+  <li><strong>Confirming in-app purchases</strong> — Purchase records (product ID, purchase time) are kept on the account to confirm and restore custom-look purchases. Payment-method details such as cards are handled by Apple and Google; the Developer does not receive them.</li>
 </ul>
-<p>The App shows no advertising, performs no user tracking, and has no payment features.</p>
+<p>The App shows rewarded ads only when the user chooses to watch one, and sells custom-look items through in-app purchase.</p>
 
 <h2>2. Categories of Data and How They Are Collected</h2>
 <div class="table-wrap"><table>
@@ -86,11 +90,19 @@
 <tr><td>Firebase Installations ID</td><td>Automatically at app start (tuning-value and device attestation calls)</td><td>Identifying targets for tuning-value delivery, device attestation</td><td>Required</td></tr>
 <tr><td>Crash logs (stack trace, device state)</td><td>Automatically when a crash occurs, after optional consent</td><td>Bug fixing</td><td>Optional</td></tr>
 <tr><td>IP address</td><td>During communication with servers</td><td>Handling communications</td><td>Required</td></tr>
+<tr><td>Advertising identifier (iOS IDFA / Android advertising ID)</td><td>Collected by the ad SDK (Unity LevelPlay) when you choose [Watch ad]; on iOS only if you allow it in the ATT prompt</td><td>Serving and measuring ads</td><td>Optional (ads and rewards still work without it — non-personalized ads)</td></tr>
+<tr><td>Device information, IP, ad viewing records</td><td>Collected by the ad SDK when you choose [Watch ad]</td><td>Serving ads, frequency limits, fraud prevention</td><td>Only when watching an ad</td></tr>
+<tr><td>Friend code (ONSAE-XXXX-XXXXX), friend / block lists, reports (fixed reason numbers)</td><td>When you use friend features (no names or photos)</td><td>Adding, blocking and reporting friends</td><td>When using friend features</td></tr>
+<tr><td>Connection ID (Epic Online Services Product User ID), room ID, IP</td><td>When you create or join a friend room over the internet</td><td>Connecting friends' devices (via Epic relay if a direct connection is not possible)</td><td>When playing with friends over the internet</td></tr>
+<tr><td>Local network address of devices on the same Wi-Fi</td><td>When playing with friends on the same Wi-Fi (not sent to any server)</td><td>Finding and connecting nearby friends' devices</td><td>When using same Wi-Fi play</td></tr>
+<tr><td>Nickname reservation</td><td>When you set or change your nickname</td><td>Preventing duplicate nicknames</td><td>Required for account use</td></tr>
+<tr><td>In-app purchase records (product ID, store, purchase time, app version)</td><td>When you buy a custom-look item</td><td>Confirming and restoring purchases</td><td>When purchasing</td></tr>
 </tbody>
 </table></div>
-<p><strong>Not collected:</strong> phone number, precise location information, contacts, photos or camera, advertising identifiers (IDFA on iOS, advertising ID on Android), payment information. The iOS app does not link <code>AdSupport.framework</code> and does not track users, so it does not display an App Tracking Transparency (ATT) prompt. The Android app turns off advertising ID collection in Analytics and does not collect the advertising ID.</p>
+<p><strong>Not collected:</strong> phone number, precise location information, contacts, reading photos or camera, payment-method information. Advertising identifiers are processed only by the ad SDK when you choose [Watch ad]; on iOS the IDFA is used only if you choose "Allow" in the App Tracking Transparency (ATT) prompt. The Developer's Analytics does not collect advertising IDs.</p>
 <ul>
-  <li><strong>Microphone and voice</strong> — Only during the singing step of the senior hall karaoke activity, and only if you allow it, the app briefly measures how loud the sound is, on your device. It does not record, store or send any audio, and it closes the microphone as soon as that step ends. If you do not allow it, you can complete the same activity by holding a button.</li>
+  <li><strong>Microphone and voice</strong> — Used only while you have allowed it and turned the mic on in karaoke (senior hall, coin karaoke, song contest). The app measures loudness on the device and plays your voice with echo through the device speaker. Only on your singing turn while playing with friends is your voice sent live to your friends' devices (directly between devices, or via the Epic relay if a direct connection is not possible). Your voice is never recorded, stored or sent to the Developer's servers. You can do the same activity with buttons without allowing the mic.</li>
+  <li><strong>Photo library</strong> — When you tap [Save to Photos] in the photo booth, the picture is only added to your photo library (the App does not read the library). Photos are not sent to the Developer.</li>
   <li><strong>Email address</strong> — Sign in with Apple requests only the name scope, so no email address is received from users who sign in with Apple. For users who sign in with Google, the email address is kept by Firebase Authentication as shown in the table above.</li>
   <li><strong>Location</strong> — precise location (such as GPS) is not collected. Only if you give optional consent to sending diagnostics and usage statistics does Google Analytics estimate an approximate country- or city-level region from the IP address.</li>
   <li><strong>Photos</strong> — the Google profile photo file is not received. Only the photo URL in the table above remains in the Firebase Authentication account record.</li>
@@ -109,6 +121,12 @@
 <tr><td>Crash logs</td><td>Retained for 90 days before removal from live and backup systems begins</td></tr>
 <tr><td>Firebase Installations ID</td><td>Google's service processing period; reissuance stops when the App is deleted</td></tr>
 <tr><td>IP address</td><td>Not stored separately by the Developer. Firebase Authentication keeps logged IP addresses for a few weeks for security and abuse prevention</td></tr>
+<tr><td>Friend code, friend / block lists, connection ID, room ID</td><td>While the account exists. Not removed by in-app account deletion — deleted within 10 days on request to the email in Section 13</td></tr>
+<tr><td>Nickname reservation</td><td>Deleted by the App when you change your nickname or delete your account</td></tr>
+<tr><td>In-app purchase records</td><td>While the account exists (for restoring purchases). Deleted within 10 days on request to the email in Section 13</td></tr>
+<tr><td>Reports (fixed reason numbers)</td><td>Deleted within 1 year after review by the operator</td></tr>
+<tr><td>Ad-related data</td><td>Not kept by the Developer. Per Unity retention policy</td></tr>
+<tr><td>Epic Online Services connection data</td><td>Not kept by the Developer. Connection ends when the room closes; logs per Epic policy</td></tr>
 </tbody>
 </table></div>
 
@@ -123,10 +141,12 @@
 <thead><tr><th>Entrusted party</th><th>Entrusted work</th><th>Entrusted data</th></tr></thead>
 <tbody>
 <tr><td rowspan="5">Google LLC</td><td>Firebase Authentication (sign-in token verification, account identification, keeping the account record)</td><td>uid, Apple user identifier or Google account identifier, Google account email address / name / profile photo URL (when signing in with Google), IP, access time</td></tr>
-<tr><td>Cloud Firestore (cloud save storage and restore)</td><td>uid, nickname, game save, sync metadata, IP</td></tr>
+<tr><td>Cloud Firestore (cloud save storage and restore; friend codes, nickname reservations and purchase records)</td><td>uid, nickname, game save, sync metadata, friend code / friend and block lists / connection ID / room ID, nickname reservation, in-app purchase records, IP</td></tr>
 <tr><td>Google Analytics for Firebase (usage statistics) — only with optional consent</td><td>App instance ID (pseudonymous), device model / OS / app version, event logs, approximate region estimated from IP, IP</td></tr>
 <tr><td>Firebase Crashlytics (crash cause analysis) — only with optional consent</td><td>Crash stack trace, device state, app version, IP</td></tr>
 <tr><td>Firebase Remote Config · App Check (tuning-value delivery, blocking abnormal clients)</td><td>Firebase Installations ID, App Attest attestation token (iOS), Play Integrity attestation token (Android), IP</td></tr>
+<tr><td>Unity Technologies (Unity LevelPlay · Unity Ads)</td><td>Serving and measuring rewarded ads — only when you choose [Watch ad]</td><td>Advertising identifier (if ATT allowed), device information, IP, ad viewing records</td></tr>
+<tr><td>Epic Games, Inc. (Epic Online Services)</td><td>Friend rooms over the internet (lobby), device-to-device connection and relay — only when playing with friends over the internet</td><td>Connection ID, room ID, IP, live singing-turn voice (when relayed)</td></tr>
 </tbody>
 </table></div>
 
@@ -141,6 +161,8 @@
 <tr><td>USA and countries where Google data centers are located</td><td>App instance ID (pseudonymous), device information, event logs, approximate region, IP</td><td>Usage statistics</td><td>2-month user/event retention setting, followed by monthly deletion (section 3)</td></tr>
 <tr><td>USA and countries where Google data centers are located</td><td>Crash stack trace, device state, app version, IP</td><td>Crash cause analysis</td><td>90 days before removal begins</td></tr>
 <tr><td>USA and countries where Google data centers are located</td><td>Installations ID, App Attest attestation token (iOS) / Play Integrity attestation token (Android), IP</td><td>Tuning-value delivery, blocking abnormal clients</td><td>Google's service processing period</td></tr>
+<tr><td>Unity Technologies<br>(USA)<br>Contact: <a href="https://unity.com/legal/privacy-policy">Unity privacy policy</a></td><td>USA and countries where Unity data centers are located</td><td>Advertising identifier (if ATT allowed), device information, IP, ad viewing records</td><td>Sent over HTTPS (TLS) when you choose [Watch ad]</td><td>Serving and measuring rewarded ads</td><td>Per Unity retention policy</td></tr>
+<tr><td>Epic Games, Inc.<br>(USA)<br>Contact: <a href="https://www.epicgames.com/site/privacypolicy">Epic privacy policy</a></td><td>USA and countries where Epic data centers are located</td><td>Connection ID, room ID, IP, live singing-turn voice (when relayed)</td><td>Encrypted transfer while playing with friends over the internet</td><td>Connecting and relaying friends' devices</td><td>Connection ends when the room closes (logs per Epic policy)</td></tr>
 </tbody>
 </table></div>
 <p><strong>How to refuse and the consequences:</strong> users may refuse the transfer abroad. To refuse, do not give the required consent on the notice screen shown at first launch, or, if you have already created an account, delete your account in the App. If you refuse, <strong>the cloud save (account features) cannot be provided</strong>, but you may continue to play with data stored only on your device, without an account.</p>
@@ -192,11 +214,13 @@
 <tr><td>Google Analytics for Firebase</td><td>App instance ID (pseudonymous), device information, events, approximate region (estimated from IP)</td><td>Do not give optional consent, or stop it at any time by turning off Settings &gt; Account · Data &gt; <strong>Send diagnostics &amp; usage stats</strong> (진단·사용 통계 보내기)</td></tr>
 <tr><td>Firebase Crashlytics</td><td>Crash stack trace, device state</td><td>Do not give optional consent, or stop it at any time by turning off Settings &gt; Account · Data &gt; <strong>Send diagnostics &amp; usage stats</strong> (진단·사용 통계 보내기)</td></tr>
 <tr><td>Firebase Remote Config · App Check</td><td>Installations ID, attestation token (App Attest / Play Integrity), IP</td><td>Required for the App to operate, so individual refusal is not offered; collection stops when the App is deleted</td></tr>
+<tr><td>Unity LevelPlay (ads)</td><td>Advertising identifier (if ATT allowed), device information, IP</td><td>The ad SDK is not started unless you tap [Watch ad]. On iOS you can turn it off in Settings &gt; Privacy &amp; Security &gt; Tracking</td></tr>
+<tr><td>Epic Online Services</td><td>Connection ID, IP</td><td>Does not operate unless you play with friends over the internet</td></tr>
 </tbody>
 </table></div>
 
 <h2>12. Personal Data of Children Under 14</h2>
-<p>The Developer <strong>does not collect personal data of children under the age of 14.</strong> The user's age is checked at first launch. If the user is confirmed to be under 14, account (Sign in with Apple / Sign in with Google) features are not provided, usage statistics and crash data are not collected, and tuning values are not fetched. In that case, game data is stored only on the user's device and is not transmitted to the Developer.</p>
+<p>The Developer <strong>does not collect personal data of children under the age of 14.</strong> The user's age is checked at first launch. If the user is confirmed to be under 14, account (Sign in with Apple / Sign in with Google) features are not provided, usage statistics and crash data are not collected, tuning values are not fetched, the ad entrances are hidden and the ad SDK and tracking prompt are never started, and playing with friends (including same Wi-Fi) and purchases are not offered. In that case, game data is stored only on the user's device and is not transmitted to the Developer.</p>
 
 <h2>13. Privacy Officer and Channel for Receiving and Handling Access Requests</h2>
 <dl class="info">
@@ -220,19 +244,20 @@
 <p>In addition, if you object to the Developer's action on a request for access, correction, deletion or suspension of processing of personal data, you may file an administrative appeal under the Personal Information Protection Act.</p>
 
 <h2>15. Effective Date and Revision History</h2>
-<p>This Privacy Policy applies from <strong>October 4, 2026</strong>. When any content is added, deleted or modified, notice will be given in the App and on this page from <strong>7 days</strong> before the effective date. However, changes that materially affect users' rights will be notified <strong>30 days</strong> in advance. Revision v2 adds the processing for the newly released Android version; it does not reduce or change the processing that already applied to users of the iOS version and only adds a way to turn off diagnostics and usage statistics, which widens users' rights, so it applies from the date of posting. Revision v2.1 only adds an optional, on-device check that collects nothing, so it also applies from the date of posting.</p>
+<p>This Privacy Policy applies from <strong>October 22, 2026</strong>. When any content is added, deleted or modified, notice will be given in the App and on this page from <strong>7 days</strong> before the effective date. However, changes that materially affect users' rights will be notified <strong>30 days</strong> in advance. Revision v2 adds the processing for the newly released Android version; it does not reduce or change the processing that already applied to users of the iOS version and only adds a way to turn off diagnostics and usage statistics, which widens users' rights, so it applies from the date of posting. Revision v2.1 only adds an optional, on-device check that collects nothing, so it also applies from the date of posting. Revision v3 only adds the processing for new optional features introduced in update 1.0.2 (rewarded ads, playing with friends, custom-look purchases); it does not reduce or change existing processing, and those features run only when the user chooses them, so it applies from the date of posting.</p>
 <div class="table-wrap"><table>
 <thead><tr><th>Version</th><th>Effective date</th><th>Changes</th></tr></thead>
 <tbody>
 <tr><td>v1</td><td>September 14, 2026</td><td>Initial version</td></tr>
 <tr><td>v2</td><td>October 3, 2026</td><td>Android release: added the data processed for Sign in with Google (email address, name, profile photo URL) with its retention, entrustment and transfer abroad; stated the approximate-region estimate and Play Integrity; added a link to the account deletion page and how to turn off diagnostics and usage statistics</td></tr>
 <tr><td>v2.1</td><td>October 4, 2026</td><td>Added the optional on-device microphone loudness check in the senior hall karaoke activity (nothing is recorded, stored or sent); clarified retention wording for crash reports and Firebase installation IDs</td></tr>
+<tr><td>v3</td><td>October 22, 2026</td><td>1.0.2: added rewarded ads (Unity LevelPlay, advertising identifier, ATT), playing with friends (friend codes, Epic Online Services, same Wi-Fi, live voice on your singing turn), nickname reservation, custom-look in-app purchase records, and saving photo-booth pictures to the photo library. Children under 14 are not offered ads, friend play or purchases</td></tr>
 </tbody>
 </table></div>
 
 <footer>
   <p>Onsaemigol · Published by Jeong Seong-yun · <a href="../terms/en.html">Terms of Service</a> · Contact <a href="mailto:onsaemigol@gmail.com">onsaemigol@gmail.com</a></p>
-  <p>Last updated October 4, 2026</p>
+  <p>Last updated October 22, 2026</p>
 </footer>
 
 </main>

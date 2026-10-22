@@ -47,7 +47,7 @@
 <p class="lang"><a href="en.html" lang="en">English</a> | <strong>한국어</strong></p>
 
 <h1>개인정보처리방침</h1>
-<p class="meta">온새미골 (iOS · Android) · 시행일 2026년 10월 4일 · 게시 주체 정성윤 (개인 개발자)</p>
+<p class="meta">온새미골 (iOS · Android) · 시행일 2026년 10월 22일 · 게시 주체 정성윤 (개인 개발자)</p>
 
 <dl class="info">
     <dt>게시 주체</dt><dd>정성윤 (개인 개발자)</dd>
@@ -66,8 +66,12 @@
   <li><strong>호환성 확인과 오류 수정</strong> — 기기·OS·앱 버전을 확인하고 크래시 원인을 분석합니다.</li>
   <li><strong>사용 통계 (선택)</strong> — 이용자가 선택 동의한 경우에만 가명 처리된 사용 통계를 확인합니다.</li>
   <li><strong>튜닝값 배포와 비정상 클라이언트 차단</strong> — 게임 밸런스 값을 배포하고 변조된 클라이언트의 접근을 막습니다.</li>
+  <li><strong>보상형 광고 (선택)</strong> — 이용자가 게임 안 광고 입구에서 직접 [광고 보기]를 고른 경우에만 광고를 보여 주고 보상을 줍니다. 광고 게재·빈도 제한·부정 방지를 위해 광고 SDK 가 기기 정보를 처리합니다. 강제 광고는 없습니다.</li>
+  <li><strong>친구 같이 놀기 (선택, 계정 이용자)</strong> — 친구 코드로 친구를 맺고, 친구끼리만 방을 만들어 함께 놉니다. 기기끼리 연결하기 위해 연결 식별자와 IP 를 처리합니다. 자유 채팅은 없고 정해진 인사말만 주고받습니다.</li>
+  <li><strong>닉네임 중복 방지</strong> — 같은 닉네임을 두 사람이 쓰지 않도록 닉네임을 예약해 둡니다.</li>
+  <li><strong>인앱 결제 확인</strong> — 꾸미기 상품의 구매·복원을 확인하기 위해 구매 기록(상품 ID·거래 시각)을 계정에 남깁니다. 카드 등 결제 수단 정보는 Apple·Google 이 처리하며 개발자는 받지 않습니다.</li>
 </ul>
-<p>앱은 광고를 게재하지 않고, 이용자 추적을 하지 않으며, 결제 기능이 없습니다.</p>
+<p>앱은 이용자가 직접 고른 경우에만 보상형 광고를 보여 주며, 꾸미기 상품을 앱스토어 인앱 결제로 판매합니다.</p>
 
 <h2>2. 처리 항목과 수집 방법</h2>
 <div class="table-wrap"><table>
@@ -84,12 +88,20 @@
 <tr><td>Firebase Installations ID</td><td>앱 시작 시 자동 (튜닝값·기기 증명 호출)</td><td>튜닝값 배포 대상 식별, 기기 증명</td><td>필수</td></tr>
 <tr><td>크래시 로그 (스택·기기 상태)</td><td>선택 동의 후 크래시 발생 시 자동</td><td>버그 수정</td><td>선택</td></tr>
 <tr><td>IP 주소</td><td>서버 통신 시</td><td>통신 처리</td><td>필수</td></tr>
+<tr><td>광고 식별자 (iOS IDFA · Android 광고 ID)</td><td>[광고 보기]를 고를 때 광고 SDK(Unity LevelPlay)가 수집. iOS 는 앱 추적 투명성(ATT) 창에서 '허용'을 고른 경우에만</td><td>광고 게재·성과 측정</td><td>선택 (거부해도 광고·보상 이용 가능 — 맞춤형이 아닌 광고)</td></tr>
+<tr><td>기기 정보·IP·광고 시청 기록</td><td>[광고 보기]를 고를 때 광고 SDK 가 수집</td><td>광고 게재·빈도 제한·부정 방지</td><td>광고를 볼 때만</td></tr>
+<tr><td>친구 코드(ONSAE-XXXX-XXXXX)·친구 목록·차단 목록·신고(정해진 사유 번호)</td><td>친구 기능을 쓸 때 (이름·사진 없음)</td><td>친구 맺기·차단·신고</td><td>친구 기능 이용 시</td></tr>
+<tr><td>연결 식별자(Epic Online Services 제품 사용자 ID)·방 번호·IP</td><td>인터넷으로 친구 방을 만들거나 들어갈 때</td><td>친구 기기끼리 연결 (직접 연결이 안 되면 Epic 중계 서버 경유)</td><td>인터넷 같이 놀기 이용 시</td></tr>
+<tr><td>같은 Wi-Fi 기기의 로컬 네트워크 주소</td><td>같은 Wi-Fi 같이 놀기 때 (서버로 보내지 않음)</td><td>근처 친구 기기 찾기·연결</td><td>같은 Wi-Fi 이용 시</td></tr>
+<tr><td>닉네임 예약 기록</td><td>닉네임을 정하거나 바꿀 때</td><td>중복 방지</td><td>계정 이용 시 필수</td></tr>
+<tr><td>인앱 구매 기록 (상품 ID·스토어·거래 시각·앱 버전)</td><td>꾸미기 상품을 살 때</td><td>구매 확인·복원</td><td>구매 시</td></tr>
 </tbody>
 </table></div>
-<p><strong>수집하지 않는 항목:</strong> 전화번호, 정확한 위치정보, 연락처, 사진·카메라, 광고 식별자(iOS 의 IDFA, Android 의 광고 ID), 결제 정보. iOS 앱은 <code>AdSupport.framework</code> 를 링크하지 않으며 추적을 하지 않으므로 앱 추적 투명성(ATT) 요청 창을 띄우지 않습니다. Android 앱은 Analytics 의 광고 ID 수집 설정을 꺼 두어 광고 ID 를 수집하지 않습니다.</p>
+<p><strong>수집하지 않는 항목:</strong> 전화번호, 정확한 위치정보, 연락처, 사진 읽기·카메라, 결제 수단 정보. 광고 식별자는 이용자가 [광고 보기]를 고를 때 광고 SDK 만 처리하며, iOS 에서는 앱 추적 투명성(ATT) 창에서 '허용'을 고른 경우에만 IDFA 를 씁니다. 개발자의 Analytics 는 광고 ID 를 수집하지 않습니다.</p>
 <ul>
   <li><strong>이메일 주소</strong> — Apple 로그인은 이름 범위만 요청하므로 Apple 로그인 사용자의 이메일 주소는 받지 않습니다. Google 로그인 사용자의 이메일 주소는 위 표와 같이 Firebase Authentication 이 보관합니다.</li>
-  <li><strong>마이크·음성</strong> — 경로당 노래방 체험의 노래 단계에서만, 사용자가 허용한 경우 마이크로 소리의 크기만 기기 안에서 잠깐 잽니다. 소리를 녹음·저장하거나 서버로 보내지 않으며, 그 단계가 끝나면 마이크를 바로 닫습니다. 허용하지 않아도 버튼을 눌러 같은 체험을 할 수 있습니다.</li>
+  <li><strong>마이크·음성</strong> — 노래방(경로당·코인노래방·노래자랑)에서 이용자가 허용하고 마이크를 켠 동안만 씁니다. 소리의 크기를 기기 안에서 재고, 에코를 더해 기기 스피커로 들려줍니다. 친구 같이 놀기 중 노래 차례일 때만 목소리가 친구 기기로 실시간 전송됩니다(기기끼리 직접, 연결이 안 되면 Epic 중계 경유). 목소리를 녹음·저장하거나 개발자 서버로 보내지 않습니다. 허용하지 않아도 버튼으로 같은 체험을 할 수 있습니다.</li>
+  <li><strong>사진첩</strong> — 네컷사진관에서 이용자가 [사진첩에 저장]을 누를 때 찍은 사진을 기기 사진첩에 넣기만 합니다(사진첩 읽기 없음). 사진은 개발자에게 전송되지 않습니다.</li>
   <li><strong>위치</strong> — 정확한 위치(GPS 등)는 수집하지 않습니다. 진단·사용 통계 전송에 선택 동의한 경우에만 Google Analytics 가 IP 주소로 국가·도시 수준의 대략적인 지역을 추정합니다.</li>
   <li><strong>사진</strong> — Google 프로필 사진 파일은 받지 않습니다. 위 표의 사진 주소(URL)만 Firebase Authentication 의 계정 기록에 남습니다.</li>
 </ul>
@@ -107,6 +119,12 @@
 <tr><td>크래시 로그</td><td>90일 보관 뒤 운영·백업 시스템에서 삭제 절차 시작</td></tr>
 <tr><td>Firebase Installations ID</td><td>Google 서비스 처리 기간. 앱 삭제 시 재발급 중단</td></tr>
 <tr><td>IP 주소</td><td>개발자는 별도로 저장하지 않음. Firebase Authentication은 보안·악용 방지를 위해 기록된 IP 주소를 수 주간 보관</td></tr>
+<tr><td>친구 코드·친구/차단 목록·연결 식별자·방 번호</td><td>계정 존속 기간. 앱의 계정 삭제로는 지워지지 않으므로, 13항 이메일로 요청하면 10일 이내 삭제</td></tr>
+<tr><td>닉네임 예약 기록</td><td>닉네임을 바꾸거나 계정을 삭제할 때 앱이 삭제</td></tr>
+<tr><td>인앱 구매 기록</td><td>계정 존속 기간 (구매 복원용). 13항 이메일로 요청하면 10일 이내 삭제</td></tr>
+<tr><td>신고 기록 (정해진 사유 번호)</td><td>운영자가 확인한 뒤 최대 1년 안에 삭제</td></tr>
+<tr><td>광고 관련 정보</td><td>개발자는 보관하지 않음. Unity 의 보관 정책을 따름</td></tr>
+<tr><td>Epic Online Services 연결 정보</td><td>개발자는 보관하지 않음. 방이 닫히면 연결 종료, 로그는 Epic 의 정책을 따름</td></tr>
 </tbody>
 </table></div>
 
@@ -121,10 +139,12 @@
 <thead><tr><th>수탁자</th><th>위탁 업무</th><th>위탁 항목</th></tr></thead>
 <tbody>
 <tr><td rowspan="5">Google LLC</td><td>Firebase Authentication (로그인 토큰 검증·계정 식별·계정 기록 보관)</td><td>uid, Apple 사용자 식별자 또는 Google 계정 식별자, Google 계정 이메일 주소·이름·프로필 사진 주소(Google 로그인 시), IP, 접속 시각</td></tr>
-<tr><td>Cloud Firestore (클라우드 세이브 보관·복구)</td><td>uid, 닉네임, 게임 세이브, 동기화 메타, IP</td></tr>
+<tr><td>Cloud Firestore (클라우드 세이브 보관·복구, 친구 코드·닉네임 예약·구매 기록 보관)</td><td>uid, 닉네임, 게임 세이브, 동기화 메타, 친구 코드·친구/차단 목록·연결 식별자·방 번호, 닉네임 예약, 인앱 구매 기록, IP</td></tr>
 <tr><td>Google Analytics for Firebase (사용 통계) — 선택 동의 시</td><td>앱 인스턴스 ID(가명), 기기 모델·OS·앱 버전, 이벤트 로그, IP 로 추정한 대략적인 지역, IP</td></tr>
 <tr><td>Firebase Crashlytics (크래시 원인 분석) — 선택 동의 시</td><td>크래시 스택, 기기 상태, 앱 버전, IP</td></tr>
 <tr><td>Firebase Remote Config · App Check (튜닝값 배포, 비정상 클라이언트 차단)</td><td>Firebase Installations ID, App Attest 증명 토큰(iOS), Play Integrity 증명 토큰(Android), IP</td></tr>
+<tr><td>Unity Technologies (Unity LevelPlay · Unity Ads)</td><td>보상형 광고 게재·측정 — [광고 보기]를 고른 경우</td><td>광고 식별자(ATT 허용 시), 기기 정보, IP, 광고 시청 기록</td></tr>
+<tr><td>Epic Games, Inc. (Epic Online Services)</td><td>친구 인터넷 방(로비)·기기 간 연결·중계 — 인터넷 같이 놀기 이용 시</td><td>연결 식별자, 방 번호, IP, 노래 차례의 실시간 음성(중계 시)</td></tr>
 </tbody>
 </table></div>
 
@@ -139,6 +159,8 @@
 <tr><td>미국 및 Google 데이터센터 소재국</td><td>앱 인스턴스 ID(가명), 기기 정보, 이벤트 로그, 대략적인 지역, IP</td><td>사용 통계</td><td>사용자·이벤트 단위 2개월 설정, 만료 후 월별 삭제(3항)</td></tr>
 <tr><td>미국 및 Google 데이터센터 소재국</td><td>크래시 스택, 기기 상태, 앱 버전, IP</td><td>크래시 원인 분석</td><td>90일 보관 뒤 삭제 절차 시작</td></tr>
 <tr><td>미국 및 Google 데이터센터 소재국</td><td>Installations ID, App Attest 증명 토큰(iOS)·Play Integrity 증명 토큰(Android), IP</td><td>튜닝값 배포, 비정상 클라이언트 차단</td><td>Google 서비스 처리 기간</td></tr>
+<tr><td>Unity Technologies<br>(미국)<br>문의: <a href="https://unity.com/legal/privacy-policy">Unity 개인정보 처리방침</a></td><td>미국 및 Unity 데이터센터 소재국</td><td>광고 식별자(ATT 허용 시), 기기 정보, IP, 광고 시청 기록</td><td>[광고 보기]를 고를 때 HTTPS(TLS) 로 전송</td><td>보상형 광고 게재·측정</td><td>Unity 보관 정책에 따름</td></tr>
+<tr><td>Epic Games, Inc.<br>(미국)<br>문의: <a href="https://www.epicgames.com/site/privacypolicy">Epic 개인정보 처리방침</a></td><td>미국 및 Epic 데이터센터 소재국</td><td>연결 식별자, 방 번호, IP, (중계 시) 노래 차례의 실시간 음성</td><td>인터넷 같이 놀기 이용 시 암호화 전송</td><td>친구 기기 연결·중계</td><td>방이 닫히면 연결 종료(로그는 Epic 정책)</td></tr>
 </tbody>
 </table></div>
 <p><strong>거부 방법과 그 효과:</strong> 이용자는 국외 이전을 거부할 수 있습니다. 거부하려면 앱 최초 실행 시 안내 화면에서 필수 동의를 하지 않거나, 이미 계정을 만들었다면 앱 내에서 계정을 삭제하면 됩니다. 거부하는 경우 <strong>클라우드 세이브(계정 기능) 를 제공할 수 없으며</strong>, 계정 없이 기기에만 저장하는 방식으로는 계속 플레이할 수 있습니다.</p>
@@ -190,11 +212,13 @@
 <tr><td>Google Analytics for Firebase</td><td>앱 인스턴스 ID(가명), 기기 정보, 이벤트, 대략적인 지역(IP 로 추정)</td><td>선택 동의를 하지 않거나, 설정 &gt; 계정 · 데이터 &gt; <strong>진단·사용 통계 보내기</strong> 를 끄면 언제든 멈출 수 있습니다</td></tr>
 <tr><td>Firebase Crashlytics</td><td>크래시 스택, 기기 상태</td><td>선택 동의를 하지 않거나, 설정 &gt; 계정 · 데이터 &gt; <strong>진단·사용 통계 보내기</strong> 를 끄면 언제든 멈출 수 있습니다</td></tr>
 <tr><td>Firebase Remote Config · App Check</td><td>Installations ID, 증명 토큰(App Attest·Play Integrity), IP</td><td>앱 동작에 필요해 개별 거부는 제공하지 않으며, 앱을 삭제하면 중단됩니다</td></tr>
+<tr><td>Unity LevelPlay (광고)</td><td>광고 식별자(ATT 허용 시), 기기 정보, IP</td><td>[광고 보기]를 누르지 않으면 광고 SDK 를 켜지 않습니다. iOS 설정 &gt; 개인정보 보호 및 보안 &gt; 추적 에서 끌 수 있습니다</td></tr>
+<tr><td>Epic Online Services</td><td>연결 식별자, IP</td><td>인터넷 같이 놀기를 쓰지 않으면 동작하지 않습니다</td></tr>
 </tbody>
 </table></div>
 
 <h2>12. 만 14세 미만 아동의 개인정보</h2>
-<p>개발자는 <strong>만 14세 미만 아동의 개인정보를 수집하지 않습니다.</strong> 앱 최초 실행 시 연령을 확인하며, 만 14세 미만으로 확인되면 계정(Apple·Google 로그인) 기능을 제공하지 않고, 사용 통계·크래시 수집도 하지 않으며, 튜닝값 조회도 하지 않습니다. 이 경우 게임 데이터는 이용자 기기에만 저장되고 개발자에게 전송되지 않습니다.</p>
+<p>개발자는 <strong>만 14세 미만 아동의 개인정보를 수집하지 않습니다.</strong> 앱 최초 실행 시 연령을 확인하며, 만 14세 미만으로 확인되면 계정(Apple·Google 로그인) 기능을 제공하지 않고, 사용 통계·크래시 수집도 하지 않으며, 튜닝값 조회도 하지 않으며, 광고 입구를 보여 주지 않고 광고 SDK·추적 동의 창도 켜지 않습니다. 친구 같이 놀기(같은 Wi-Fi 포함)와 결제도 제공하지 않습니다. 이 경우 게임 데이터는 이용자 기기에만 저장되고 개발자에게 전송되지 않습니다.</p>
 
 <h2>13. 개인정보 보호책임자와 열람청구 접수·처리 창구</h2>
 <dl class="info">
@@ -218,19 +242,20 @@
 <p>또한 개인정보의 열람·정정·삭제·처리정지 요구에 대한 개발자의 조치에 불복이 있는 경우 「개인정보 보호법」 에 따라 행정심판을 청구할 수 있습니다.</p>
 
 <h2>15. 시행일과 변경 이력</h2>
-<p>이 개인정보처리방침은 <strong>2026년 10월 4일</strong> 부터 적용됩니다. 내용을 추가·삭제·수정할 때에는 시행 <strong>7일 전</strong> 부터 앱 내 공지와 이 페이지를 통해 알립니다. 다만 이용자 권리에 중대한 영향을 미치는 변경은 <strong>30일 전</strong> 에 알립니다. v2 개정은 새로 출시하는 Android 판의 처리 내용을 더한 것으로, 이미 iOS 판을 이용하던 분께 적용되던 처리 내용을 줄이거나 바꾸지 않고 진단·사용 통계를 끄는 방법만 더해 이용자 권리를 넓히므로 게시일부터 시행합니다. v2.1 개정은 아무것도 수집하지 않는 선택적 기기 안 측정만 더하므로 역시 게시일부터 시행합니다.</p>
+<p>이 개인정보처리방침은 <strong>2026년 10월 22일</strong> 부터 적용됩니다. 내용을 추가·삭제·수정할 때에는 시행 <strong>7일 전</strong> 부터 앱 내 공지와 이 페이지를 통해 알립니다. 다만 이용자 권리에 중대한 영향을 미치는 변경은 <strong>30일 전</strong> 에 알립니다. v2 개정은 새로 출시하는 Android 판의 처리 내용을 더한 것으로, 이미 iOS 판을 이용하던 분께 적용되던 처리 내용을 줄이거나 바꾸지 않고 진단·사용 통계를 끄는 방법만 더해 이용자 권리를 넓히므로 게시일부터 시행합니다. v2.1 개정은 아무것도 수집하지 않는 선택적 기기 안 측정만 더하므로 역시 게시일부터 시행합니다. v3 개정은 1.0.2 업데이트에서 새로 생긴 선택 기능(보상형 광고·친구 같이 놀기·꾸미기 결제)을 쓸 때의 처리만 더하고, 기존 처리 내용을 줄이거나 바꾸지 않으며 해당 기능은 이용자가 직접 고를 때만 동작하므로 게시일부터 시행합니다.</p>
 <div class="table-wrap"><table>
 <thead><tr><th>버전</th><th>시행일</th><th>변경 내용</th></tr></thead>
 <tbody>
 <tr><td>v1</td><td>2026년 9월 14일</td><td>최초 제정</td></tr>
 <tr><td>v2</td><td>2026년 10월 3일</td><td>Android 출시: Google 로그인 처리 항목(이메일 주소·이름·프로필 사진 주소)과 보유 기간·위탁·국외 이전 추가, 대략적인 지역 추정과 Play Integrity 명시, 계정 삭제 안내 페이지 링크와 진단·사용 통계 끄는 방법 추가</td></tr>
 <tr><td>v2.1</td><td>2026년 10월 4일</td><td>경로당 노래방 체험의 선택적 마이크 소리 크기 측정(기기 안에서만, 녹음·저장·전송 없음) 추가, 오류 보고·Firebase 설치 ID 보관 문구 보강</td></tr>
+<tr><td>v3</td><td>2026년 10월 22일</td><td>1.0.2: 보상형 광고(Unity LevelPlay, 광고 식별자·ATT), 친구 같이 놀기(친구 코드·Epic Online Services·같은 Wi-Fi·노래 차례 음성), 닉네임 예약, 꾸미기 인앱 결제 기록, 네컷 사진첩 저장 추가. 만 14세 미만은 광고·친구·결제 미제공</td></tr>
 </tbody>
 </table></div>
 
 <footer>
   <p>온새미골 · 게시 주체 정성윤 · <a href="../terms/">이용약관</a> · 문의 <a href="mailto:onsaemigol@gmail.com">onsaemigol@gmail.com</a></p>
-  <p>최종 수정 2026년 10월 3일</p>
+  <p>최종 수정 2026년 10월 22일</p>
 </footer>
 
 </main>
