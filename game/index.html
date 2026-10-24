@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>온새미골</title>
+<meta name="description" content="강원도 산골 마을에서 텃밭을 가꾸고 나물을 캐고, 손으로 시골밥을 짓는 느긋한 힐링 라이프 시뮬레이션.">
+<meta property="og:title" content="온새미골">
+<meta property="og:description" content="산골 마을에서 짓는 따뜻한 시골밥 한 끼.">
+<meta property="og:image" content="img/hero.jpg">
+<link rel="icon" href="img/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&family=Gowun+Dodum&display=swap" rel="stylesheet">
+<style>
+:root { --bg:#f6f1e7; --paper:#fffaf1; --ink:#2f2a22; --sub:#6f6556; --leaf:#4f7a3a; --clay:#c0683a; --line:#e4dccb; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#1b1a16; --paper:#24221d; --ink:#efe8da; --sub:#b4a990; --leaf:#8fbf6f; --clay:#e08a5a; --line:#3a362d; }
+}
+* { box-sizing:border-box; }
+body { margin:0; word-break:keep-all; background:var(--bg); color:var(--ink);
+       font:16px/1.8 "Gowun Dodum", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+.hero { position:relative; min-height:70vh; display:flex; align-items:flex-end;
+        background:linear-gradient(to top, var(--bg) 3%, rgba(246,241,231,0) 45%), url("img/hero.jpg") center/cover; }
+@media (prefers-color-scheme: dark) { .hero { background:linear-gradient(to top, var(--bg) 3%, rgba(27,26,22,.1) 50%), url("img/hero.jpg") center/cover; } }
+.hero-in { max-width:960px; margin:0 auto; width:100%; padding:0 16px 40px; }
+.badge { width:72px; height:72px; border-radius:18px; box-shadow:0 6px 18px rgba(0,0,0,.2); display:block; margin-bottom:14px; }
+h1 { font-family:"Gowun Batang", serif; font-weight:700; font-size:clamp(44px, 9vw, 76px); line-height:1.1; margin:0;
+     color:#fffaf1; letter-spacing:.04em; text-shadow:0 2px 14px rgba(40,30,15,.55); }
+.tag { font-size:clamp(17px, 2.4vw, 22px); color:#fffaf1; margin:10px 0 0; text-shadow:0 1px 8px rgba(40,30,15,.6); }
+.stores { display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
+.btn { display:inline-block; padding:10px 18px; border-radius:999px; font-size:15px; text-decoration:none; }
+.btn.on { background:var(--leaf); color:#fff; }
+.btn.off { border:1px solid #fffaf1; color:#fffaf1; background:rgba(0,0,0,.18); }
+main { max-width:960px; margin:0 auto; padding:24px 16px 72px; }
+h2 { font-family:"Gowun Batang", serif; font-weight:700; font-size:25px; margin:52px 0 12px; color:var(--ink); }
+h2::before { content:""; display:inline-block; width:10px; height:10px; border-radius:50%; background:var(--clay); margin-right:10px; vertical-align:middle; }
+p { margin:0 0 14px; }
+.lead { font-size:18px; }
+.feat { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:14px; margin:20px 0 0; }
+.feat div { background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:16px; }
+.feat b { display:block; margin-bottom:4px; color:var(--leaf); font-size:17px; }
+.feat span { color:var(--sub); font-size:15px; }
+.film { display:grid; grid-template-columns:minmax(0, 320px) 1fr; gap:20px; align-items:center; margin-top:16px; }
+@media (max-width:640px) { .film { grid-template-columns:1fr; } }
+.film video { width:100%; display:block; border-radius:14px; background:#000; aspect-ratio:9/16; object-fit:cover; }
+.shots { display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; margin-top:16px; }
+@media (max-width:640px) { .shots { grid-template-columns:repeat(2, 1fr); } }
+.shots img { width:100%; display:block; border-radius:12px; aspect-ratio:9/16; object-fit:cover; }
+.note { color:var(--sub); font-size:14px; }
+.en { color:var(--sub); font-size:15px; }
+footer { border-top:1px solid var(--line); margin-top:56px; padding-top:20px; font-size:14px; color:var(--sub); }
+footer a { color:var(--sub); }
+</style>
+</head>
+<body>
+<header class="hero"><div class="hero-in">
+  <img class="badge" src="img/icon.png" alt="">
+  <h1>온새미골</h1>
+  <p class="tag">산골 마을에서 짓는, 따뜻한 시골밥 한 끼</p>
+  <div class="stores">
+    <a class="btn on" href="https://apps.apple.com/kr/app/id6816279947">App Store에서 보기</a>
+    <span class="btn off">Google Play 출시 준비 중</span>
+  </div>
+</div></header>
+<main>
+  <p class="lead">도시 생활에 지친 어느 날, 강원도 산골 마을 온새미골의 빈집으로 한 달 촌캉스를 떠납니다. 텃밭을 일구고, 뒷산에서 나물을 캐고, 아궁이에 불을 지펴 손으로 밥을 짓습니다. 처음엔 "서울 손님"이던 내가, 어느새 "우리 집 사람"이 되어 갑니다.</p>
+
+  <div class="feat">
+    <div><b>손으로 짓는 시골밥</b><span>휘젓고, 썰고, 뒤집고, 간을 보는 손짓으로 감자전부터 된장찌개까지.</span></div>
+    <div><b>텃밭과 뒷산</b><span>씨를 뿌리고 물을 주고, 봄나물과 버섯을 찾아 숲과 계곡을 걷습니다.</span></div>
+    <div><b>정 많은 이웃들</b><span>자꾸 밥을 더 주시는 할머니, 말없이 밤 봉지를 두고 가시는 할아버지.</span></div>
+    <div><b>흰 진돗개 백구</b><span>마을 어디든 함께 걷는 든든한 친구. 읍내 장날과 사진관 나들이도.</span></div>
+  </div>
+
+  <h2>영상</h2>
+  <div class="film">
+    <video src="dawn.mp4" poster="img/poster.jpg" controls playsinline muted loop preload="none"></video>
+    <div>
+      <p>안개 걷히는 온새미골의 새벽. 게임을 켜면 가장 먼저 만나는 풍경입니다.</p>
+      <p class="note">연출 영상입니다. 실제 게임 화면과 다를 수 있습니다.</p>
+    </div>
+  </div>
+
+  <h2>스크린샷</h2>
+  <div class="shots">
+    <img src="img/s01.jpg" alt="이웃과 함께하는 밥상" loading="lazy">
+    <img src="img/s02.jpg" alt="읍내 방앗간과 백구" loading="lazy">
+    <img src="img/s03.jpg" alt="마을에서 바라본 뒷산" loading="lazy">
+    <img src="img/s04.jpg" alt="읍내 떡집" loading="lazy">
+    <img src="img/s05.jpg" alt="밤의 모닥불" loading="lazy">
+    <img src="img/s06.jpg" alt="양봉장과 꿀" loading="lazy">
+  </div>
+
+  <h2>Onsaemigol</h2>
+  <p class="en">Leave the city behind for a month in Onsaemigol, a quiet mountain village in Gangwon, Korea. Tend a vegetable garden, forage wild greens in the hills, and cook warm country meals by hand with simple gestures. Make friends with kind village elders and Baekgu, a white Jindo dog. Available on the App Store; coming soon to Google Play.</p>
+
+  <footer>
+    © 2026 정성윤 · 문의 <a href="mailto:onsaemigol@gmail.com">onsaemigol@gmail.com</a><br>
+    <a href="../privacy/">개인정보처리방침</a> · <a href="../terms/">이용약관</a> · <a href="../delete/">계정 삭제 안내</a> · <a href="../">Legal</a>
+  </footer>
+</main>
+</body>
+</html>
